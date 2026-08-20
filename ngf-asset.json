@@ -1,12 +1,17 @@
 {
+  "schema_version": "2.0",
+  "document_version": "2.0",
+  "last_updated": "2026-08-20",
   "asset_id_num": "923867:120",
   "asset_id_ordinal": "923867:120",
+  "rune_id": "923867:120",
   "asset_symbol": "NGF•BTC•AM",
   "name": "NESGESFinance Bitcoin Asset Model",
   "type": "Fungible Rune",
   "network": "Bitcoin Mainnet",
   "protocol": "Runes v1.0, Taproot Assets, Lightning L2",
-  "version": "1.0",
+  "protocols": ["Runes v1.0", "Taproot Assets", "Lightning L2"],
+  "version": "2.0",
   "etching": {
     "block": 923867,
     "transaction_index": 120,
@@ -14,12 +19,13 @@
     "timestamp": "2025-11-16T05:24:23Z",
     "source_wallet": "bc1pdhwwfwgtpqhg66dlfx7upfy7c6rjltwk3tjjf2zygqxh5ullfgwsfnvhwm",
     "fee_sats": 325,
-    "miner": "SECPOOL",
-    "op_return": "{ \"ticker\": \"NGF•BTC•AM\", \"desc\": \"NESGESFinance Ecosystem S.A.S. Fungible Rune. Use, payment, tokenization and reservation. Compatible with: Lightning and Taproot.\", \"supply\": \"5930000000\", \"dec\": 0, \"url\": \"https://nesgesfinance.github.io\", \"sig\": \"NESGESFinance Ecosystem S.A.S.\", \"And your neighbor as yourself\" }"
+    "miner": "SECPOOL"
   },
   "issuer": {
     "entity_name": "NESGESFinance Ecosystem S.A.S.",
-    "jurisdiction": "LatAm Corporate Framework",
+    "entity_type": "Sociedad de Beneficio e Interés Colectivo",
+    "jurisdiction": "Ecuador",
+    "ruc": "1091799299001",
     "website": "https://nesgesfinance.github.io",
     "contact_email": "info.nesgesfinance@gmail.com",
     "official_docs": [
@@ -28,7 +34,7 @@
     ]
   },
   "description": {
-    "summary": "NGF•BTC•AM is the institutional fungible Rune issued by NESGESFinance Ecosystem S.A.S. Used for payment, tokenization, treasury reserves, and impact governance. Compatible with Lightning Network and Taproot Assets.",
+    "summary": "NGF•BTC•AM is the institutional fungible Rune issued by NESGESFinance Ecosystem S.A.S. for productive infrastructure, treasury operations, internal settlement, and RWA collateralization.",
     "use_cases": [
       "Collateral for RWA tokenization",
       "Settlement unit in treasury operations",
@@ -43,68 +49,62 @@
     "mintable": false,
     "burnable": false,
     "model": "fixed",
+    "non_inflationary": true,
     "vesting_policy": "none",
     "premine": 5930000000,
     "current_supply": 5930000000,
     "burned": 0,
     "holders": 11,
-    "distribution_status": "completed"
+    "distribution_status": "ongoing"
   },
   "allocation": {
-    "liquidity_reserve": { "percentage": 0.30, "amount": 1779000000, "address": "bc1p5t82dw7ga3nyg2y8m3xuehmcjgyeul9ykj57f2c6h53d4rw0amqq5sterr" },
-    "productive_projects": { "percentage": 0.25, "amount": 1482500000, "address": "bc1pvsn33g4aufa2zt8mzv7veehztvzzndtm4fq2gcgnh7fv2m5duc7qe9x8rp" },
-    "social_environmental_programs": { "percentage": 0.15, "amount": 889500000, "address": "bc1p8ya2g9nlptws4fxmjsnpyn8swtk3kus7dm8dtnd2zev7lpjufvsshlu8qw" },
-    "governance_and_alliances": { "percentage": 0.15, "amount": 889493154, "address": "bc1ptur3s5amrqcn93r8k9rhrdjm5fmvukgdt63tjjgxrvkwmyqswqcsjy3q99" },
-    "treasury": { "percentage": 0.10, "amount": 593000000, "address": "bc1pl8qtw4g9afscmctydmv56mak4m9leqxyqlvqgxaltj2d5wt9wteqqgpdug" },
-    "team_and_advisors": { "percentage": 0.04, "amount": 237200000, "address": "bc1pkxxuaxr3knq5t7dp8920wezdx3txml45ex5m07t3v9vh9pzgy33q3tpmnx" },
-    "operating_expenses": { "percentage": 0.01, "amount": 59300000, "address": "bc1ph7xn7wmg8hsqgc8lmg7da969ledr37l8ut5r5yqm5s085r7c2l7qqmryp0" }
+    "liquidity_reserve": { "percentage": 0.30, "amount": 1779000000, "status": "Deployed", "address": "bc1p5t82dw7ga3nyg2y8m3xuehmcjgyeul9ykj57f2c6h53d4rw0amqq5sterr" },
+    "productive_projects": { "percentage": 0.25, "amount": 1482500000, "status": "Operational", "address": "bc1pvsn33g4aufa2zt8mzv7veehztvzzndtm4fq2gcgnh7fv2m5duc7qe9x8rp" },
+    "social_environmental": { "percentage": 0.15, "amount": 889500000, "status": "Allocated", "address": "bc1p8ya2g9nlptws4fxmjsnpyn8swtk3kus7dm8dtnd2zev7lpjufvsshlu8qw" },
+    "governance_alliances": { "percentage": 0.15, "amount": 889493154, "status": "Active", "address": "bc1ptur3s5amrqcn93r8k9rhrdjm5fmvukgdt63tjjgxrvkwmyqswqcsjy3q99" },
+    "treasury": { "percentage": 0.10, "amount": 593000000, "status": "Controlled", "address": "bc1pl8qtw4g9afscmctydmv56mak4m9leqxyqlvqgxaltj2d5wt9wteqqgpdug" },
+    "team_advisors": { "percentage": 0.04, "amount": 237200000, "status": "Vested", "address": "bc1pkxxuaxr3knq5t7dp8920wezdx3txml45ex5m07t3v9vh9pzgy33q3tpmnx" },
+    "operating_expenses": { "percentage": 0.01, "amount": 59300000, "status": "Reserved", "address": "bc1ph7xn7wmg8hsqgc8lmg7da969ledr37l8ut5r5yqm5s085r7c2l7qqmryp0" }
   },
-  "custody": {
-    "model": "multi-signature (3-of-5)",
-    "participants": [ "Issuer", "Auditor", "Independent Partner" ],
-    "rotation_policy": "semiannual key rotation"
+  "governance": {
+    "model": "Hybrid DAO + Corporate S.A.S.",
+    "dao_model": "Progressive Decentralization",
+    "voting_rights": ["strategic voting", "ecosystem proposals", "productive allocation"],
+    "quorum": 0.66,
+    "voting_weight_policy": "balanced",
+    "multisig": "3-of-5"
   },
   "audit_and_transparency": {
     "public_dashboard_url": "https://unisat.io/runes/NGF•BTC•AM",
     "explorer_url": "https://mempool.space/tx/4c0b2416f3dd122025f89a62d7ff265fcee8d00e0fabd874669617cf85437c82",
     "proof_of_reserves": "on-chain & IPFS",
-    "audit_policy": "monthly internal, annual external (planned)"
-  },
-  "governance": {
-    "model": "Hybrid DAO + Corporate S.A.S.",
-    "voting_rights": [ "strategic voting", "ecosystem proposals", "productive allocation" ],
-    "quorum": 0.66,
-    "voting_weight_policy": "balanced"
+    "audit_policy": "monthly internal, annual external (planned)",
+    "sync_interval_days": 30
   },
   "technical": {
     "taproot_compatibility": true,
     "lightning_compatibility": true,
     "api_schema": "ngf_btc_asset_model_v1",
-    "commitment_bytes": "pending"
+    "checksum": "SHA-256 compliant"
   },
   "status": {
+    "phase": "Consolidation",
     "issued": true,
     "explorer_listed": true,
     "public_sale": "completed",
-    "current_state": "distribution ongoing, supply and holders registered on-chain"
+    "current_state": "distribution ongoing, supply and holders registered on-chain",
+    "next_phase": "Phase Alpha"
   },
   "legal": {
-    "documentation_standard": "NESGESFinance Corporate Registry 11-2025",
-    "asset_category": "Corporate Hybrid RWA Support Unit",
+    "documentation_standard": "NESGESFinance Corporate Registry 2026",
+    "asset_category": "Utility, no Security",
     "record_persistence": "perpetual",
-    "disclaimer": "NGF•BTC•AM it is a digital utility asset issued by NESGESFinance Ecosystem S.A.S. Its use is limited to payments, tokenization, and functional participation within the NESGESFinance ecosystem. It does not grant financial rights, ownership, or returns on tokenized projects, nor does it constitute a public offering or security under the regulations applicable in the jurisdictions where the issuer operates. Any financial or commercial use must be carried out within the corresponding regulatory framework."
+    "jurisdiction": "Ecuador",
+    "ruc": "1091799299001",
+    "disclaimer": "NGF•BTC•AM is a digital utility asset issued by NESGESFinance Ecosystem S.A.S. It does not constitute a public securities offering."
   },
   "references": {
     "unisat_listing": "https://unisat.io/runes/NGF•BTC•AM",
-    "mempool_tx": "https://mempool.space/tx/4c0b2416f3dd122025f89a62d7ff265fcee8d00e0fabd874669617cf85437c82",
-    "holders_list": [
-      { "address": "bc1p5t82dw7ga3nyg2y8m3xuehmcjgyeul9ykj57f2c6h53d4rw0amqq5sterr", "percentage": 0.30, "amount": 1779000000 },
-      { "address": "bc1pvsn33g4aufa2zt8mzv7veehztvzzndtm4fq2gcgnh7fv2m5duc7qe9x8rp", "percentage": 0.25, "amount": 1482500000 },
-      { "address": "bc1p8ya2g9nlptws4fxmjsnpyn8swtk3kus7dm8dtnd2zev7lpjufvsshlu8qw", "percentage": 0.15, "amount": 889500000 },
-      { "address": "bc1ptur3s5amrqcn93r8k9rhrdjm5fmvukgdt63tjjgxrvkwmyqswqcsjy3q99", "percentage": 0.15, "amount": 889493154 },
-      { "address": "bc1pl8qtw4g9afscmctydmv56mak4m9leqxyqlvqgxaltj2d5wt9wteqqgpdug", "percentage": 0.10, "amount": 593000000 },
-      { "address": "bc1pkxxuaxr3knq5t7dp8920wezdx3txml45ex5m07t3v9vh9pzgy33q3tpmnx", "percentage": 0.04, "amount": 237200000 },
-      { "address": "bc1ph7xn7wmg8hsqgc8lmg7da969ledr37l8ut5r5yqm5s085r7c2l7qqmryp0", "percentage": 0.01, "amount": 59300000 }
-    ]
+    "mempool_tx": "https://mempool.space/tx/4c0b2416f3dd122025f89a62d7ff265fcee8d00e0fabd874669617cf85437c82"
   }
 }

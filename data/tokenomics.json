@@ -1,0 +1,14 @@
+{
+  "asset": "NGF•BTC•AM",
+  "total_supply": 5930000000,
+  "decimals": 0,
+  "allocation": {
+    "liquidity_reserve": {"percentage": 0.30, "amount": 1779000000},
+    "productive_projects": {"percentage": 0.25, "amount": 1482500000},
+    "social_environmental": {"percentage": 0.15, "amount": 889500000},
+    "governance_alliances": {"percentage": 0.15, "amount": 889493154},
+    "treasury": {"percentage": 0.10, "amount": 593000000},
+    "team_advisors": {"percentage": 0.04, "amount": 237200000},
+    "operating_expenses": {"percentage": 0.01, "amount": 59300000}
+  }
+}

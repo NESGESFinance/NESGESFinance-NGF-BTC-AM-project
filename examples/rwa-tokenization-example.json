@@ -1,0 +1,11 @@
+{
+  "rwa_id": "RWA-PROD-001",
+  "type": "Productive Infrastructure",
+  "collateral_model": "On-chain + IPFS",
+  "documentation_status": "verified",
+  "bitcoin_anchor": {
+    "network": "Bitcoin Mainnet",
+    "protocol": "Runes",
+    "verification": "mempool"
+  }
+}

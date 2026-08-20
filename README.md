@@ -1,204 +1,98 @@
-# NGF•BTC•AM — Institutional Bitcoin-Based Asset Model  
-**NESGESFinance Ecosystem S.A.S.**  
-Version: **1.0**
+# NGF•BTC•AM — Institutional Bitcoin-Based Asset Model (2026 Edition)
 
----
+**Issuer:** NESGESFinance Ecosystem S.A.S. BIC  
+**Version:** 2.0  
+**Whitepaper Date:** 2026-08-20
 
-## Overview
-
-**NNGF•BTC•AM** is the institutional **fungible Rune-based asset model** issued by **NESGESFinance Ecosystem S.A.S.** on **Bitcoin Mainnet**.  
-It operates as a hybrid corporate asset designed to support **real-world productive infrastructure**, **treasury operations**, **internal settlement**, and **RWA collateralization** within the NESGESFinance architecture.
-
-This repository contains the official metadata definition:
-
-- `ngf-asset.json` — Core asset metadata  
-- `ngf-asset-schema.json` — JSON Schema for validation
-- 'github-workflows-validate-json.yml'
-
-The model follows the **NESGESFinance Corporate Registry Standard 11-2025**.
-
----
+## Descripción
+NGF•BTC•AM es el modelo institucional de activo fungible basado en Bitcoin para operaciones productivas, colateralización RWA, tesorería, liquidez, liquidación interna y gobernanza verificable on-chain.
 
 ## Asset Identity
-
-| Field | Value |
-|------|--------|
-| **Asset ID** | NGF•BTC•AM |
-| **Ticker** | NGF•BTC•AM |
-| **Rune ID** | 923867:120 |
-| **Network** | Bitcoin Mainnet |
-| **Protocol** | Runes |
-| **Type** | Fungible Rune |
-| **Version** | 1.0 |
-
----
+| Campo | Valor |
+|---|---|
+| Asset | NGF•BTC•AM |
+| Rune ID | 923867:120 |
+| Tipo | Fungible Rune |
+| Red | Bitcoin Mainnet |
+| Protocolos | Runes v1.0, Taproot Assets, Lightning L2 |
+| Supply | 5,930,000,000 (fixed) |
+| Decimals | 0 |
 
 ## Issuer Information
-
-- **Entity:** NESGESFinance Ecosystem S.A.S.  
-- **Jurisdiction:** LatAm Corporate Framework  
-- **Website:** https://nesgesfinance.github.io  
-- **Contact:** info.nesgesfinance@gmail.com  
-
----
-
-## Description
-
-NGF•BTC•AM functions as the **core institutional asset** of NESGESFinance, used for:
-
-- Collateral for RWA tokenization  
-- Internal settlement and accounting  
-- Treasury reserve asset  
-- Liquidity deployment  
-- Governance participation  
-- Support of productive economic infrastructure  
-
-It follows a **non-inflationary, fixed-supply** model with a strict operational and audit policy.
-
----
+- **Entidad:** NESGESFinance Ecosystem S.A.S.
+- **Tipo corporativo:** Sociedad de Beneficio e Interés Colectivo (S.A.S. BIC)
+- **Jurisdicción:** Ecuador
+- **RUC:** 1091799299001
+- **Web:** https://nesgesfinance.github.io
+- **Contacto:** info.nesgesfinance@gmail.com
 
 ## Economic Parameters
-
-| Parameter | Value |
-|----------|--------|
-| **Total Supply** | 5,930,000,000 |
-| **Decimals** | 0 |
-| **Mintable** | No |
-| **Burnable** | No |
-| **Supply Model** | Fixed |
-| **Valuation Basis** | Proof of Production (PoP) |
-
----
+- Modelo no inflacionario y no dilutivo
+- Mint: deshabilitado
+- Burn: deshabilitado
+- Emisión fija completamente distribuida
+- Valorización operativa basada en Proof of Production (PoP)
 
 ## Allocation Model
+| Category | % | Amount | Status |
+|---|---:|---:|---|
+| Liquidity Reserve | 30% | 1,779,000,000 | Deployed |
+| Productive Projects | 25% | 1,482,500,000 | Operational |
+| Social & Environmental | 15% | 889,500,000 | Allocated |
+| Governance & Alliances | 15% | 889,493,154 | Active |
+| Treasury | 10% | 593,000,000 | Controlled |
+| Team & Advisors | 4% | 237,200,000 | Vested |
+| Operating Expenses | 1% | 59,300,000 | Reserved |
 
-| Category | Percentage |
-|----------|------------|
-| Liquidity Reserve | 30% |
-| Productive Projects | 25% |
-| Social & Environmental Programs | 15% |
-| Governance & Alliances | 10% |
-| Treasury | 10% |
-| Staking Rewards | 5% |
-| Team & Advisors | 4% |
-| Operating Expenses | 1% |
-
----
-
-## Proof of Production (PoP)
-
-- **Model:** PoP — Proof of Production  
-- **Validation Source:** Bitcoin Mempool  
-- **Algorithm:** SHA-256  
-- **Indexer:** NESGESFinance Internal Corporate Indexer  
-- **Meaning:**  
-  Production arises from **verifiable on-chain operations**, treasury flows, and liquidity activity cycles.
-
----
+## Proof of Production
+PoP valida actividad económica real por operaciones en cadena: flujo de tesorería, ciclos de liquidez, ejecución operativa y salida productiva verificable.
 
 ## Oracle System
-
-- **RWA Oracle:** Active  
-- **Audit Oracle:** Active  
-- **Sync Interval:** 30 days  
-- **Data Sources:**  
-  - Bitcoin Mempool  
-  - NESGESFinance Internal Indexer  
-  - RWA Operations Registry  
-
----
+- RWA Oracle
+- Audit Oracle
+- Data Oracle
+- Fuentes: Bitcoin Mempool, indexador interno NESGESFinance, registro RWA y verificadores externos
+- Intervalo de sincronización: 30 días
 
 ## Audit Policy
-
-- **Audit Interval:** 30 days  
-- **Methods:**  
-  - Multisig reserve verification  
-  - PoP/operational verification  
-  - Treasury flow attestation  
-- **Transparency:** Open Ledger  
-
----
+- Auditoría interna mensual
+- Auditoría externa anual (planificada)
+- Verificaciones ad-hoc
+- Validación de reservas multisig, flujos de tesorería y trazabilidad PoP
 
 ## Governance Framework
-
-**Hybrid Model:** DAO + Corporate S.A.S.
-
-- **Multisig Control:** Enabled  
-- **DAO Rights:**  
-  - Strategic voting  
-  - Ecosystem proposals  
-  - Productive allocation  
-- **Corporate Rights:**  
-  - Legal representation  
-  - Infrastructure management  
-  - RWA oversight  
-- **Quorum:** 66%  
-- **Voting Weight Policy:** Balanced  
-
----
+Modelo híbrido **DAO + S.A.S.** con:
+- Custodia multisig 3-of-5
+- Quórum 66%
+- Derechos de voto: estratégico, propuestas y asignación productiva
+- Evolución hacia descentralización progresiva
 
 ## Operational Policies
-
-- **Burn:** Not allowed  
-- **Mint:** Disabled  
-- **Treasury:** Controlled  
-- **Redistribution:** Productivity-based  
-- **Staking:** Fixed & non-inflationary  
-
----
+- Operación enfocada en infraestructura productiva verificable
+- Políticas de reserva y despliegue con control institucional
+- Trazabilidad total de movimientos relevantes en Bitcoin
 
 ## Risk Assessment
-
-| Risk Type | Level |
-|----------|--------|
-| Governance Risk | Medium-Low |
-| Oracle Risk | Medium |
-| Treasury Risk | Controlled |
-| Operational Risk | Low |
-| Mint Risk | None |
-| Burn Risk | None |
-
----
+- Governance Risk: Medium-Low
+- Oracle Risk: Medium
+- Treasury Risk: Controlled
+- Operational Risk: Low
+- Mint Risk: None
+- Burn Risk: None
 
 ## Technical Integration
-
-- Compatible with:  
-  - Bitcoin L1  
-  - Taproot Assets  
-  - Lightning Network  
-- **Indexer Ready:** next  
-- **API Schema:** ngf-asset_model_v1  
-- **Checksum:** SHA-256 compliant  
-
----
+- L1: Bitcoin Mainnet / Runes
+- L2: Taproot Assets
+- L2: Lightning Network
+- API Schema: `ngf_btc_asset_model_v1`
+- Checksum: SHA-256 compliant
 
 ## Institutional Registry
+- Registro institucional corporativo activo
+- Operación alineada con marco LatAm y documentación legal en repositorio
 
-- **Issuer:** NESGESFinance Ecosystem S.A.S.  
-- **Category:** Corporate Hybrid RWA Support Unit  
-- **Documentation Standard:** Corporate Holding Registry 11-2025  
-- **Record Persistence:** Perpetual  
+## Legal Framework
+NGF•BTC•AM se clasifica como activo de utilidad (no security), de uso funcional dentro del ecosistema NESGESFinance y bajo jurisdicción de Ecuador.
 
----
-
-## Official Signature
-
-**NESGESFinance Ecosystem S.A.S.**  
-*Motto:* **“And your neighbor as yourself”**
-
----
-
-## Files in This Repository
-
-| File | Description |
-|------|-------------|
-| `ngf-asset.json` | Official metadata of the NGF-BTC-AM asset |
-| `ngf-asset-schema.json` | JSON Schema for validation |
-
----
-
-## License
-
-© 2025 NESGESFinance Ecosystem S.A.S.  
-All rights reserved.  
-Use permitted only within the NESGESFinance technical and institutional architecture.
+## Repository Index
+Ver [INDEX.md](INDEX.md) para navegación centralizada y [docs/](docs) para especificaciones completas.
