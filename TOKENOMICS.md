@@ -34,3 +34,12 @@ El activo circula entre reserva, operación y realimentación productiva dentro 
 
 ## Impact on Productive Infrastructure
 Provee unidad funcional para financiar, operar y auditar proyectos productivos con respaldo verificable.
+
+## Actualización literal 2026
+- Supply fijo confirmado: `5,930,000,000`
+- Modelo: no inflacionario, sin mint adicional y sin burn operativo
+- Distribución: en curso con control institucional y reconciliación de 6,846 unidades a nivel metadata
+
+## Sugerencias de contenido adicional
+- Publicar tablero mensual de desempeño por categoría de asignación.
+- Añadir una sección de métricas históricas de distribución y actividad de tesorería.

@@ -23,3 +23,13 @@ La gobernanza incrementa participación DAO en etapas conforme madurez operativa
 
 ## Resolución de Conflictos
 Escalación interna con trazabilidad documental y validación de políticas corporativas/DAO.
+
+## Actualización literal 2026
+- Modelo vigente: `Hybrid DAO + Corporate S.A.S.`
+- Custodia: multisig institucional `3-of-5`
+- Quórum de validación: `66%`
+- Política de participación: descentralización progresiva con control de riesgo operativo
+
+## Sugerencias de mejora
+- Definir un calendario trimestral de propuestas DAO con métricas mínimas de impacto productivo.
+- Publicar actas resumidas de decisiones de gobernanza y su evidencia de ejecución.

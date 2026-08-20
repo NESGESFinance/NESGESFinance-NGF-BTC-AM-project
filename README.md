@@ -96,3 +96,14 @@ NGF•BTC•AM se clasifica como activo de utilidad (no security), de uso funcio
 
 ## Repository Index
 Ver [INDEX.md](INDEX.md) para navegación centralizada y [docs/](docs) para especificaciones completas.
+
+## Últimas actualizaciones integradas (2026-08-20)
+- Se consolidó la narrativa institucional v2.0 en todos los documentos raíz y técnicos.
+- Se alinearon referencias de tokenomics, gobernanza, auditoría y marco legal con el estado operativo actual.
+- Se mantuvo la trazabilidad de datos críticos con `ngf-asset.json`, `data/tokenomics.json`, `data/governance-model.json` y `data/ecosystem-status.json`.
+
+## Sugerencias e integración de nuevo contenido
+- Incluir un reporte operativo mensual en `docs/` con indicadores PoP, variación de holders y estado de asignaciones.
+- Incorporar un anexo de interoperabilidad (L2/Lightning) con escenarios de liquidación institucional.
+- Publicar una matriz de cumplimiento regulatorio por jurisdicción objetivo para la fase Alpha.
+- Ver detalle en [docs/11-ACTUALIZACIONES-Y-SUGERENCIAS.md](docs/11-ACTUALIZACIONES-Y-SUGERENCIAS.md).

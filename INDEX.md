@@ -20,7 +20,12 @@
 8. [Audit Policy](docs/08-AUDIT-POLICY.md)
 9. [Risk Framework](docs/09-RISK-FRAMEWORK.md)
 10. [Technical Specs](docs/10-TECHNICAL-SPECS.md)
+11. [Actualizaciones y Sugerencias](docs/11-ACTUALIZACIONES-Y-SUGERENCIAS.md)
 
 ## Versión del Documento
 - Version: 2.0
 - Date: 2026-08-20
+
+## Estado de actualización literal
+- Documentación raíz y técnica consolidada con actualización integral 2026.
+- Sugerencias priorizadas para siguiente iteración incluidas en `docs/11-ACTUALIZACIONES-Y-SUGERENCIAS.md`.

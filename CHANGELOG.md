@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1] - 2026-08-20
+- **Author:** NESGESFinance Ecosystem S.A.S.
+- **Type:** Documentation consistency refresh
+- Actualización literal completa en documentos raíz con enfoque institucional v2.0
+- Integración de nuevo contenido de sugerencias estratégicas y operativas para fase siguiente
+- Extensión del índice documental con sección dedicada a actualizaciones y recomendaciones
+
 ## [2.0] - 2026-08-20
 - **Author:** NESGESFinance Ecosystem S.A.S.
 - **Type:** Major documentation and governance update
