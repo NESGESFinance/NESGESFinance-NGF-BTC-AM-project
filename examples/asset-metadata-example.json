@@ -1,0 +1,14 @@
+{
+  "schema_version": "2.0",
+  "asset_symbol": "NGF•BTC•AM",
+  "rune_id": "923867:120",
+  "network": "Bitcoin Mainnet",
+  "protocols": ["Runes v1.0", "Taproot Assets", "Lightning L2"],
+  "supply": {
+    "total": 5930000000,
+    "decimals": 0,
+    "model": "fixed",
+    "mintable": false,
+    "burnable": false
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "version": "2.0",
+  "model": "Hybrid DAO + Corporate S.A.S.",
+  "corporate": {
+    "entity": "NESGESFinance Ecosystem S.A.S.",
+    "type": "Sociedad de Beneficio e Interés Colectivo",
+    "jurisdiction": "Ecuador",
+    "ruc": "1091799299001"
+  },
+  "dao": {
+    "model": "Progressive Decentralization",
+    "quorum": 0.66,
+    "voting_weight": "Balanced",
+    "governance_rights": ["Strategic Voting", "Proposals", "Productive Allocation"]
+  },
+  "custody": {
+    "model": "3-of-5 Multisig",
+    "participants": ["Issuer", "Auditor", "Independent Partner"],
+    "rotation_policy": "Semiannual"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "proposal_id": "GOV-2026-001",
+  "title": "Expand productive allocation monitoring",
+  "category": "Strategic",
+  "quorum_required": 0.66,
+  "voting_weight": "Balanced",
+  "options": ["approve", "reject", "abstain"],
+  "status": "draft"
+}

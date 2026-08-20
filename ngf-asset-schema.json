@@ -1,30 +1,80 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "NGF•BTC•AM Asset Model Schema",
+  "description": "Schema v2.0 with backward-compatible fields for NGF•BTC•AM metadata.",
   "type": "object",
-
+  "additionalProperties": true,
   "properties": {
-    "asset_id_num": { "type": "string" },
-    "asset_id_ordinal": { "type": "string" },
-    "asset_symbol": { "type": "string" },
-    "name": { "type": "string" },
-
-    "type": { "type": "string", "enum": ["Fungible Rune"] },
-    "network": { "type": "string" },
-    "protocol": { "type": "string" },
-    "version": { "type": "string" },
-
+    "schema_version": {
+      "type": "string"
+    },
+    "document_version": {
+      "type": "string"
+    },
+    "last_updated": {
+      "type": "string"
+    },
+    "asset_id_num": {
+      "type": "string"
+    },
+    "asset_id_ordinal": {
+      "type": "string"
+    },
+    "rune_id": {
+      "type": "string"
+    },
+    "asset_symbol": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "Fungible Rune"
+      ]
+    },
+    "network": {
+      "type": "string"
+    },
+    "protocol": {
+      "type": "string"
+    },
+    "protocols": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "version": {
+      "type": "string"
+    },
     "etching": {
       "type": "object",
       "properties": {
-        "block": { "type": "integer" },
-        "transaction_index": { "type": "integer" },
-        "txid": { "type": "string" },
-        "timestamp": { "type": "string", "format": "date-time" },
-        "source_wallet": { "type": "string" },
-        "fee_sats": { "type": "integer" },
-        "miner": { "type": "string" },
-        "op_return": { "type": "string" }
+        "block": {
+          "type": "integer"
+        },
+        "transaction_index": {
+          "type": "integer"
+        },
+        "txid": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "source_wallet": {
+          "type": "string"
+        },
+        "fee_sats": {
+          "type": "integer"
+        },
+        "miner": {
+          "type": "string"
+        }
       },
       "required": [
         "block",
@@ -34,152 +84,249 @@
         "source_wallet"
       ]
     },
-
     "issuer": {
       "type": "object",
       "properties": {
-        "entity_name": { "type": "string" },
-        "jurisdiction": { "type": "string" },
-        "website": { "type": "string" },
-        "contact_email": { "type": "string" },
+        "entity_name": {
+          "type": "string"
+        },
+        "entity_type": {
+          "type": "string"
+        },
+        "jurisdiction": {
+          "type": "string"
+        },
+        "ruc": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string"
+        },
+        "contact_email": {
+          "type": "string"
+        },
         "official_docs": {
           "type": "array",
-          "items": { "type": "string" }
+          "items": {
+            "type": "string"
+          }
         }
       },
-      "required": ["entity_name", "jurisdiction"]
+      "required": [
+        "entity_name",
+        "jurisdiction"
+      ]
     },
-
     "description": {
       "type": "object",
       "properties": {
-        "summary": { "type": "string" },
+        "summary": {
+          "type": "string"
+        },
         "use_cases": {
           "type": "array",
-          "items": { "type": "string" }
+          "items": {
+            "type": "string"
+          }
         }
       }
     },
-
     "supply": {
       "type": "object",
       "properties": {
-        "total": { "type": "integer" },
-        "decimals": { "type": "integer" },
-        "mintable": { "type": "boolean" },
-        "burnable": { "type": "boolean" },
-        "model": { "type": "string" },
-        "vesting_policy": { "type": "string" },
-        "premine": { "type": "integer" },
-        "current_supply": { "type": "integer" },
-        "burned": { "type": "integer" },
-        "holders": { "type": "integer" },
-        "distribution_status": { "type": "string" }
+        "total": {
+          "type": "integer"
+        },
+        "decimals": {
+          "type": "integer"
+        },
+        "mintable": {
+          "type": "boolean"
+        },
+        "burnable": {
+          "type": "boolean"
+        },
+        "model": {
+          "type": "string"
+        },
+        "non_inflationary": {
+          "type": "boolean"
+        },
+        "vesting_policy": {
+          "type": "string"
+        },
+        "premine": {
+          "type": "integer"
+        },
+        "current_supply": {
+          "type": "integer"
+        },
+        "burned": {
+          "type": "integer"
+        },
+        "holders": {
+          "type": "integer"
+        },
+        "distribution_status": {
+          "type": "string"
+        }
       },
-      "required": ["total", "decimals", "mintable"]
+      "required": [
+        "total",
+        "decimals",
+        "mintable"
+      ]
     },
-
     "allocation": {
       "type": "object",
       "patternProperties": {
         ".*": {
           "type": "object",
           "properties": {
-            "percentage": { "type": "number" },
-            "amount": { "type": "integer" },
-            "address": { "type": "string" }
+            "percentage": {
+              "type": "number"
+            },
+            "amount": {
+              "type": "integer"
+            },
+            "status": {
+              "type": "string"
+            },
+            "address": {
+              "type": "string"
+            },
+            "metadata_only": {
+              "type": "boolean"
+            }
           },
-          "required": ["percentage", "amount", "address"]
+          "required": [
+            "percentage",
+            "amount"
+          ]
         }
       }
     },
-
-    "custody": {
-      "type": "object",
-      "properties": {
-        "model": { "type": "string" },
-        "participants": {
-          "type": "array",
-          "items": { "type": "string" }
-        },
-        "rotation_policy": { "type": "string" }
-      }
-    },
-
-    "audit_and_transparency": {
-      "type": "object",
-      "properties": {
-        "public_dashboard_url": { "type": "string" },
-        "explorer_url": { "type": "string" },
-        "proof_of_reserves": { "type": "string" },
-        "audit_policy": { "type": "string" }
-      }
-    },
-
     "governance": {
       "type": "object",
       "properties": {
-        "model": { "type": "string" },
+        "model": {
+          "type": "string"
+        },
+        "dao_model": {
+          "type": "string"
+        },
         "voting_rights": {
           "type": "array",
-          "items": { "type": "string" }
+          "items": {
+            "type": "string"
+          }
         },
-        "quorum": { "type": "number" },
-        "voting_weight_policy": { "type": "string" }
+        "quorum": {
+          "type": "number"
+        },
+        "voting_weight_policy": {
+          "type": "string"
+        },
+        "multisig": {
+          "type": "string"
+        }
       }
     },
-
+    "audit_and_transparency": {
+      "type": "object",
+      "properties": {
+        "public_dashboard_url": {
+          "type": "string"
+        },
+        "explorer_url": {
+          "type": "string"
+        },
+        "proof_of_reserves": {
+          "type": "string"
+        },
+        "audit_policy": {
+          "type": "string"
+        },
+        "sync_interval_days": {
+          "type": "integer"
+        }
+      }
+    },
     "technical": {
       "type": "object",
       "properties": {
-        "taproot_compatibility": { "type": "boolean" },
-        "lightning_compatibility": { "type": "boolean" },
-        "api_schema": { "type": "string" },
-        "commitment_bytes": { "type": "string" }
+        "taproot_compatibility": {
+          "type": "boolean"
+        },
+        "lightning_compatibility": {
+          "type": "boolean"
+        },
+        "api_schema": {
+          "type": "string"
+        },
+        "checksum": {
+          "type": "string"
+        }
       }
     },
-
     "status": {
       "type": "object",
       "properties": {
-        "issued": { "type": "boolean" },
-        "explorer_listed": { "type": "boolean" },
-        "public_sale": { "type": "string" },
-        "current_state": { "type": "string" }
+        "phase": {
+          "type": "string"
+        },
+        "issued": {
+          "type": "boolean"
+        },
+        "explorer_listed": {
+          "type": "boolean"
+        },
+        "public_sale": {
+          "type": "string"
+        },
+        "current_state": {
+          "type": "string"
+        },
+        "next_phase": {
+          "type": "string"
+        }
       }
     },
-
     "legal": {
       "type": "object",
       "properties": {
-        "documentation_standard": { "type": "string" },
-        "asset_category": { "type": "string" },
-        "record_persistence": { "type": "string" },
-        "disclaimer": { "type": "string" }
+        "documentation_standard": {
+          "type": "string"
+        },
+        "asset_category": {
+          "type": "string"
+        },
+        "record_persistence": {
+          "type": "string"
+        },
+        "jurisdiction": {
+          "type": "string"
+        },
+        "ruc": {
+          "type": "string"
+        },
+        "disclaimer": {
+          "type": "string"
+        }
       }
     },
-
     "references": {
       "type": "object",
       "properties": {
-        "unisat_listing": { "type": "string" },
-        "mempool_tx": { "type": "string" },
-        "holders_list": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "address": { "type": "string" },
-              "percentage": { "type": "number" },
-              "amount": { "type": "integer" }
-            },
-            "required": ["address", "percentage", "amount"]
-          }
+        "unisat_listing": {
+          "type": "string"
+        },
+        "mempool_tx": {
+          "type": "string"
         }
       }
     }
   },
-
   "required": [
     "asset_symbol",
     "name",
@@ -188,6 +335,7 @@
     "issuer",
     "supply",
     "allocation",
+    "governance",
     "technical",
     "legal"
   ]
