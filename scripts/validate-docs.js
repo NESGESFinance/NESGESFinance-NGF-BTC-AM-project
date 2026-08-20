@@ -39,8 +39,7 @@ function main() {
 
   const index = fs.readFileSync(path.join(repoRoot, 'INDEX.md'), 'utf8');
   requiredFiles.slice(6).forEach((docPath) => {
-    const label = docPath.replace('docs/', '').replace('.md', '');
-    assert(index.includes(docPath) || index.includes(label), `INDEX reference missing for ${docPath}`);
+    assert(index.includes(docPath), `INDEX reference missing for ${docPath}`);
   });
 
   console.log('Documentation validation passed.');

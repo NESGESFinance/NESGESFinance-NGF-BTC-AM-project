@@ -1,4 +1,4 @@
-# 04 — Governance
+# Governance
 
 ## Modelo Híbrido: DAO + S.A.S. Corporativo
 Gobernanza dual con coordinación corporativa y participación comunitaria progresiva.

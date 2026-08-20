@@ -14,6 +14,9 @@ Emisión fija total de 5,930,000,000 unidades, sin mint adicional ni burn operat
 | Team & Advisors | 4% | 237,200,000 | Vested |
 | Operating Expenses | 1% | 59,300,000 | Reserved |
 
+
+> Note: A 6,846-unit reconciliation reserve is maintained at metadata level to align summed allocation with fixed total supply.
+
 ## Distribution Addresses
 La distribución operativa y las direcciones de asignación están reflejadas en `ngf-asset.json`.
 

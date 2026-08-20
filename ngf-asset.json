@@ -10,7 +10,11 @@
   "type": "Fungible Rune",
   "network": "Bitcoin Mainnet",
   "protocol": "Runes v1.0, Taproot Assets, Lightning L2",
-  "protocols": ["Runes v1.0", "Taproot Assets", "Lightning L2"],
+  "protocols": [
+    "Runes v1.0",
+    "Taproot Assets",
+    "Lightning L2"
+  ],
   "version": "2.0",
   "etching": {
     "block": 923867,
@@ -58,18 +62,63 @@
     "distribution_status": "ongoing"
   },
   "allocation": {
-    "liquidity_reserve": { "percentage": 0.30, "amount": 1779000000, "status": "Deployed", "address": "bc1p5t82dw7ga3nyg2y8m3xuehmcjgyeul9ykj57f2c6h53d4rw0amqq5sterr" },
-    "productive_projects": { "percentage": 0.25, "amount": 1482500000, "status": "Operational", "address": "bc1pvsn33g4aufa2zt8mzv7veehztvzzndtm4fq2gcgnh7fv2m5duc7qe9x8rp" },
-    "social_environmental": { "percentage": 0.15, "amount": 889500000, "status": "Allocated", "address": "bc1p8ya2g9nlptws4fxmjsnpyn8swtk3kus7dm8dtnd2zev7lpjufvsshlu8qw" },
-    "governance_alliances": { "percentage": 0.15, "amount": 889493154, "status": "Active", "address": "bc1ptur3s5amrqcn93r8k9rhrdjm5fmvukgdt63tjjgxrvkwmyqswqcsjy3q99" },
-    "treasury": { "percentage": 0.10, "amount": 593000000, "status": "Controlled", "address": "bc1pl8qtw4g9afscmctydmv56mak4m9leqxyqlvqgxaltj2d5wt9wteqqgpdug" },
-    "team_advisors": { "percentage": 0.04, "amount": 237200000, "status": "Vested", "address": "bc1pkxxuaxr3knq5t7dp8920wezdx3txml45ex5m07t3v9vh9pzgy33q3tpmnx" },
-    "operating_expenses": { "percentage": 0.01, "amount": 59300000, "status": "Reserved", "address": "bc1ph7xn7wmg8hsqgc8lmg7da969ledr37l8ut5r5yqm5s085r7c2l7qqmryp0" }
+    "liquidity_reserve": {
+      "percentage": 0.3,
+      "amount": 1779000000,
+      "status": "Deployed",
+      "address": "bc1p5t82dw7ga3nyg2y8m3xuehmcjgyeul9ykj57f2c6h53d4rw0amqq5sterr"
+    },
+    "productive_projects": {
+      "percentage": 0.25,
+      "amount": 1482500000,
+      "status": "Operational",
+      "address": "bc1pvsn33g4aufa2zt8mzv7veehztvzzndtm4fq2gcgnh7fv2m5duc7qe9x8rp"
+    },
+    "social_environmental": {
+      "percentage": 0.15,
+      "amount": 889500000,
+      "status": "Allocated",
+      "address": "bc1p8ya2g9nlptws4fxmjsnpyn8swtk3kus7dm8dtnd2zev7lpjufvsshlu8qw"
+    },
+    "governance_alliances": {
+      "percentage": 0.15,
+      "amount": 889493154,
+      "status": "Active",
+      "address": "bc1ptur3s5amrqcn93r8k9rhrdjm5fmvukgdt63tjjgxrvkwmyqswqcsjy3q99"
+    },
+    "treasury": {
+      "percentage": 0.1,
+      "amount": 593000000,
+      "status": "Controlled",
+      "address": "bc1pl8qtw4g9afscmctydmv56mak4m9leqxyqlvqgxaltj2d5wt9wteqqgpdug"
+    },
+    "team_advisors": {
+      "percentage": 0.04,
+      "amount": 237200000,
+      "status": "Vested",
+      "address": "bc1pkxxuaxr3knq5t7dp8920wezdx3txml45ex5m07t3v9vh9pzgy33q3tpmnx"
+    },
+    "operating_expenses": {
+      "percentage": 0.01,
+      "amount": 59300000,
+      "status": "Reserved",
+      "address": "bc1ph7xn7wmg8hsqgc8lmg7da969ledr37l8ut5r5yqm5s085r7c2l7qqmryp0"
+    },
+    "supply_reconciliation": {
+      "percentage": 1.154e-06,
+      "amount": 6846,
+      "status": "Reserved",
+      "metadata_only": true
+    }
   },
   "governance": {
     "model": "Hybrid DAO + Corporate S.A.S.",
     "dao_model": "Progressive Decentralization",
-    "voting_rights": ["strategic voting", "ecosystem proposals", "productive allocation"],
+    "voting_rights": [
+      "strategic voting",
+      "ecosystem proposals",
+      "productive allocation"
+    ],
     "quorum": 0.66,
     "voting_weight_policy": "balanced",
     "multisig": "3-of-5"

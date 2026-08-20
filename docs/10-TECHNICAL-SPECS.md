@@ -17,9 +17,9 @@
 SHA-256 compliant.
 
 ## Integration Points
-- Explorers: UniScan, Mempool
+- Explorers: UniSat, Mempool
 - Indexers: Next
 - DEX/AMM Protocols
 
 ## Technical Roadmap
-Consolidación de validadores de consistencia, fortalecimiento de indexación y automatización de control documental.
+Consolidation of consistency validators, stronger indexing, and automated documentation controls.
