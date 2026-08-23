@@ -27,7 +27,7 @@ jobs:
           python-version: "3.x"
 
       - name: Install validation dependency
-        run: python -m pip install --upgrade pip jsonschema
+        run: python -m pip install --upgrade pip "jsonschema==4.23.0"
 
       - name: Validate JSON with JSON Schema
         run: |
