@@ -13,7 +13,7 @@ This repository contains the official metadata definition:
 
 - `ngf-asset.json` — Core asset metadata  
 - `ngf-asset-schema.json` — JSON Schema for validation
-- 'github-workflows-validate-json.yml'
+- `.github/workflows/validate-schema.yml` — GitHub Actions workflow for schema validation
 
 The model follows the **NESGESFinance Corporate Registry Standard 11-2025**.
 
@@ -194,6 +194,7 @@ It follows a **non-inflationary, fixed-supply** model with a strict operational 
 |------|-------------|
 | `ngf-asset.json` | Official metadata of the NGF-BTC-AM asset |
 | `ngf-asset-schema.json` | JSON Schema for validation |
+| `.github/workflows/validate-schema.yml` | GitHub Actions workflow that validates the asset metadata |
 
 ---
 

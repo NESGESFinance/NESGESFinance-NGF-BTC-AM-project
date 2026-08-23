@@ -1,0 +1,49 @@
+name: Validate Schemas
+
+on:
+  push:
+    paths:
+      - "ngf-asset.json"
+      - "ngf-asset-schema.json"
+      - ".github/workflows/validate-schema.yml"
+  pull_request:
+    paths:
+      - "ngf-asset.json"
+      - "ngf-asset-schema.json"
+      - ".github/workflows/validate-schema.yml"
+
+jobs:
+  validate:
+    name: Validate JSON against Schema
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install validation dependency
+        run: python -m pip install --upgrade pip jsonschema
+
+      - name: Validate JSON with JSON Schema
+        run: |
+          python - <<'PY'
+          import json
+          from jsonschema import Draft7Validator, FormatChecker
+
+          with open("ngf-asset-schema.json", encoding="utf-8") as schema_file:
+              schema = json.load(schema_file)
+
+          with open("ngf-asset.json", encoding="utf-8") as instance_file:
+              instance = json.load(instance_file)
+
+          Draft7Validator.check_schema(schema)
+          validator = Draft7Validator(schema, format_checker=FormatChecker())
+          validator.validate(instance)
+
+          print("All good! JSON is valid")
+          PY
