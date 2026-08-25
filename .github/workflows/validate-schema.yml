@@ -1,0 +1,54 @@
+name: Validate NGF•BTC•AM JSON
+
+on:
+  push:
+    paths:
+      - "ngf-asset.json"
+      - "ngf-asset-schema.json"
+      - ".github/workflows/validate-schema.yml"
+  pull_request:
+    paths:
+      - "ngf-asset.json"
+      - "ngf-asset-schema.json"
+      - ".github/workflows/validate-schema.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate JSON against Schema
+    runs-on: ubuntu-latest
+    env:
+      ASSET_FILE: ngf-asset.json
+      SCHEMA_FILE: ngf-asset-schema.json
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Verify required files
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          for file in "$ASSET_FILE" "$SCHEMA_FILE"; do
+            test -f "$file" || {
+              echo "::error file=$file::Falta el archivo requerido: $file"
+              exit 1
+            }
+
+            ls -la "$file"
+          done
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install jsonschema
+        run: python -m pip install --upgrade pip jsonschema
+
+      - name: Validate JSON with JSON Schema
+        run: python -m jsonschema -i "$ASSET_FILE" "$SCHEMA_FILE"
