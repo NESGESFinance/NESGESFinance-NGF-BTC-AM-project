@@ -25,7 +25,7 @@ La información aquí publicada es **institucional, técnica e informativa**. No
 | **Rune** | NGF•BTC•AM |
 | **Número declarado** | #208,645 |
 | **Rune ID** | `923867:120` |
-| **Nombre** | NESGESFinance Bitcoin Asset Model |
+| **Nombre** | NGF•BTC•AM — NESGESFinance Utility Rune |
 | **Naturaleza** | Utility token / Fungible Rune |
 | **Red** | Bitcoin Mainnet |
 | **Protocolo** | Runes v1.0, Taproot Assets, Lightning L2 |
