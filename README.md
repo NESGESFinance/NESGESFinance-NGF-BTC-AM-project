@@ -146,11 +146,11 @@ La participación exige **KYC/AML**, verificación de origen de fondos, direcci�
 
 ## Referencias oficiales
 
-- Frontend institucional: `https://github.com/NESGESFinance/NESGESFinanceTrust/tree/main/frontend`
-- Página institucional: `https://raw.githubusercontent.com/NESGESFinance/NESGESFinanceTrust/main/frontend/institucional.html`
-- Página principal: `https://raw.githubusercontent.com/NESGESFinance/NESGESFinanceTrust/main/frontend/index.html`
-- Whitepaper PDF: `https://github.com/NESGESFinance/NESGESFinanceTrust/blob/main/NESGESFinance%20Ecosystem%20Mini%20Whitepaper%20Institucional%202026%20(2).pdf`
-- Sitio público: `https://nesgesfinance.org/`
+- Frontend institucional: [NESGESFinanceTrust/frontend](https://github.com/NESGESFinance/NESGESFinanceTrust/tree/main/frontend)
+- Página institucional: [frontend/institucional.html](https://github.com/NESGESFinance/NESGESFinanceTrust/blob/main/frontend/institucional.html)
+- Página principal: [frontend/index.html](https://github.com/NESGESFinance/NESGESFinanceTrust/blob/main/frontend/index.html)
+- Whitepaper PDF: [NESGESFinance Ecosystem Mini Whitepaper Institucional 2026](https://github.com/NESGESFinance/NESGESFinanceTrust/blob/main/NESGESFinance%20Ecosystem%20Mini%20Whitepaper%20Institucional%202026%20(2).pdf)
+- Sitio público: [nesgesfinance.org](https://nesgesfinance.org/)
 
 ---
 
