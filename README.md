@@ -166,7 +166,7 @@ La participación exige **KYC/AML**, verificación de origen de fondos, direcci�
 
 ## Licencia y aviso
 
-Copyright ® **NESGESFinance Ecosystem S.A.S. BIC. & LLC.**  
+© **NESGESFinance Ecosystem S.A.S. BIC. & LLC.**  
 Todos los derechos reservados 2025–2026.
 
 Uso permitido únicamente dentro de la arquitectura técnica, institucional y documental de NESGESFinance.

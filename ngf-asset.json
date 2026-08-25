@@ -97,7 +97,7 @@
     "disclaimer": "This repository publishes institutional, technical, and informational material for NGF•BTC•AM. The asset is described as a utility Rune for identity, access, and functional participation within the NESGESFinance ecosystem. It does not by itself grant direct economic rights over project series and does not constitute a public securities offering, a public market, custody services, or financial, legal, or tax advice. Any formal issuance or project-specific rights must arise exclusively from the applicable series documentation and governing regulatory framework."
   },
   "references": {
-    "unisat_listing": "https://unisat.io/runes/NGF•BTC•AM",
+    "unisat_listing": "https://unisat.io/runes/NGF%E2%80%A2BTC%E2%80%A2AM/",
     "mempool_tx": "https://mempool.space/tx/4c0b2416f3dd122025f89a62d7ff265fcee8d00e0fabd874669617cf85437c82",
     "holders_list": [
       { "address": "bc1p5t82dw7ga3nyg2y8m3xuehmcjgyeul9ykj57f2c6h53d4rw0amqq5sterr", "percentage": 0.30, "amount": 1779000000 },
