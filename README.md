@@ -160,7 +160,7 @@ La participación exige **KYC/AML**, verificación de origen de fondos, direcci�
 |---|---|
 | `ngf-asset.json` | Metadata oficial del activo NGF•BTC•AM |
 | `ngf-asset-schema.json` | Esquema JSON para validación |
-| `github-workflows-validate-json.yml` | Flujo de validación JSON |
+| `.github/workflows/validate-json.yml` | Flujo de validación JSON |
 
 ---
 
