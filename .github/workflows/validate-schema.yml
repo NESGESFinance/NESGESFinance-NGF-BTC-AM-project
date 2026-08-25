@@ -35,7 +35,7 @@ jobs:
 
           for file in "$ASSET_FILE" "$SCHEMA_FILE"; do
             test -f "$file" || {
-              echo "::error file=$file::Falta el archivo requerido: $file"
+              echo "::error file=$file::Required file is missing: $file"
               exit 1
             }
 
