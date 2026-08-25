@@ -12,6 +12,9 @@ on:
       - "ngf-asset-schema.json"
       - ".github/workflows/validate-json.yml"
 
+permissions:
+  contents: read
+
 jobs:
   validate:
     name: Validate JSON against Schema
