@@ -45,7 +45,7 @@
     "mintable": false,
     "burnable": false,
     "model": "fixed",
-    "vesting_policy": "6-month cliff followed by linear release over 12-18 months where applicable",
+    "vesting_policy": "allocation lock-up only; no additional minting, with a 6-month cliff followed by 12-18 months of linear release where applicable",
     "premine": 5930000000,
     "current_supply": 5930000000,
     "burned": 0,
