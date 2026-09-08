@@ -89,6 +89,30 @@ Cada proyecto debe operar con **SPV, activo subyacente, expediente, reglamento d
 | **TXID** | `4c0b2416f3dd122025f89a62d7ff265fcee8d00e0fabd874669617cf85437c82` |
 | **Fuentes de verificación** | UniSat, Mempool.space y Ord.io |
 
+La raíz de confianza para resolver discrepancias documentales debe ser el TXID, el bloque confirmado y la salida de un indexador Rune determinista. El PDF, HTML o cualquier transcripción documental no deben sustituir al archivo fuente, objeto Git, build reproducible ni verificación on-chain.
+
+---
+
+## Matriz de evidencia y auditoría génesis
+
+Este repositorio incorpora una **Evidence Matrix** en `ngf-asset.json` para evitar que una afirmación declarativa sea tratada como evidencia productiva. Los estados admitidos son:
+
+| Estado | Significado |
+|---|---|
+| `VERIFIED_ONCHAIN` | Comprobado directamente en Bitcoin u otra fuente on-chain declarada |
+| `VERIFIED_SOURCE` | Comprobado contra archivo fuente u objeto Git canónico |
+| `VERIFIED_BUILD` | Comprobado mediante compilación o validación reproducible |
+| `VERIFIED_RUNTIME` | Probado en ejecución o entorno de integración |
+| `DOCUMENTED` | Documentado en materiales del repositorio, sin verificación independiente aquí |
+| `DECLARED` | Declarado por metadata o documentos institucionales |
+| `SIMULATED` | Sustentado sólo por simulación o fixture |
+| `UNVERIFIED` | Pendiente de evidencia o verificación externa |
+| `CONTRADICTED` | Contradicho por evidencia más fuerte |
+
+El **NGF Genesis Audit Record** clasifica los datos actuales de TXID, bloque, Rune ID, supply, divisibilidad y mint/burn como información documentada hasta que se reconstruyan mediante Bitcoin Core y un indexador Rune. La custodia 3/5 se mantiene como `UNVERIFIED` porque este repositorio no contiene script, xpubs, atestaciones de firmantes ni ceremonia PSBT verificable.
+
+La FASE II sobre `blocks.ts`, `$updateBlocks()` y hallazgos BLK-001 a BLK-015 no puede corregirse en este repositorio porque el código del indexador Mempool no está presente aquí. Esa auditoría requiere el repositorio `NESGESFinance.mempool.space` o el archivo fuente exacto.
+
 ---
 
 ## Tokenómica oficial v5.0

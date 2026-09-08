@@ -3,6 +3,41 @@
   "title": "NGF•BTC•AM Asset Model Schema",
   "type": "object",
 
+  "definitions": {
+    "evidenceStatus": {
+      "type": "string",
+      "enum": [
+        "VERIFIED_ONCHAIN",
+        "VERIFIED_SOURCE",
+        "VERIFIED_BUILD",
+        "VERIFIED_RUNTIME",
+        "DOCUMENTED",
+        "DECLARED",
+        "SIMULATED",
+        "UNVERIFIED",
+        "CONTRADICTED"
+      ]
+    },
+    "evidenceEntry": {
+      "type": "object",
+      "properties": {
+        "component": { "type": "string" },
+        "property": { "type": "string" },
+        "value": {
+          "type": ["string", "number", "integer", "boolean", "null"]
+        },
+        "status": { "$ref": "#/definitions/evidenceStatus" },
+        "source": { "type": "string" },
+        "network": { "type": ["string", "null"] },
+        "block": { "type": ["integer", "null"] },
+        "txid": { "type": ["string", "null"] },
+        "evidence": { "type": ["string", "null"] },
+        "notes": { "type": ["string", "null"] }
+      },
+      "required": ["component", "property", "value", "status", "source"]
+    }
+  },
+
   "properties": {
     "asset_id_num": { "type": "string" },
     "asset_id_ordinal": { "type": "string" },
@@ -179,6 +214,60 @@
       }
     },
 
+    "evidence_status_definitions": {
+      "type": "object",
+      "additionalProperties": { "type": "string" },
+      "propertyNames": { "$ref": "#/definitions/evidenceStatus" }
+    },
+
+    "ngf_genesis_audit_record": {
+      "type": "object",
+      "properties": {
+        "component": { "type": "string" },
+        "record_type": { "type": "string" },
+        "status": { "$ref": "#/definitions/evidenceStatus" },
+        "source_of_truth_policy": { "type": "string" },
+        "declared_values": {
+          "type": "object",
+          "properties": {
+            "rune_id": { "type": "string" },
+            "rune_symbol": { "type": "string" },
+            "txid": { "type": "string" },
+            "block": { "type": "integer" },
+            "transaction_index": { "type": "integer" },
+            "timestamp": { "type": "string", "format": "date-time" },
+            "total_supply": { "type": "integer" },
+            "decimals": { "type": "integer" },
+            "mintable": { "type": "boolean" },
+            "burnable": { "type": "boolean" },
+            "premine": { "type": "integer" }
+          }
+        },
+        "forensic_verification_steps": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "current_limitations": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "required": [
+        "component",
+        "record_type",
+        "status",
+        "source_of_truth_policy",
+        "declared_values",
+        "forensic_verification_steps",
+        "current_limitations"
+      ]
+    },
+
+    "evidence_matrix": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/evidenceEntry" }
+    },
+
     "governance": {
       "type": "object",
       "properties": {
@@ -258,6 +347,9 @@
     "supply",
     "allocation",
     "technical",
-    "legal"
+    "legal",
+    "evidence_status_definitions",
+    "ngf_genesis_audit_record",
+    "evidence_matrix"
   ]
 }

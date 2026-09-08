@@ -81,18 +81,50 @@
     "distribution_status": "declared at 100% with public verification and audit references"
   },
   "allocation": {
-    "liquidity_reserve": { "percentage": 0.30, "amount": 1779000000, "address": "bc1p5t82dw7ga3nyg2y8m3xuehmcjgyeul9ykj57f2c6h53d4rw0amqq5sterr" },
-    "productive_projects": { "percentage": 0.25, "amount": 1482500000, "address": "bc1pvsn33g4aufa2zt8mzv7veehztvzzndtm4fq2gcgnh7fv2m5duc7qe9x8rp" },
-    "social_environmental_programs": { "percentage": 0.15, "amount": 889500000, "address": "bc1p8ya2g9nlptws4fxmjsnpyn8swtk3kus7dm8dtnd2zev7lpjufvsshlu8qw" },
-    "governance_and_alliances": { "percentage": 0.15, "amount": 889493154, "address": "bc1ptur3s5amrqcn93r8k9rhrdjm5fmvukgdt63tjjgxrvkwmyqswqcsjy3q99" },
-    "treasury": { "percentage": 0.10, "amount": 593000000, "address": "bc1pl8qtw4g9afscmctydmv56mak4m9leqxyqlvqgxaltj2d5wt9wteqqgpdug" },
-    "team_and_advisors": { "percentage": 0.04, "amount": 237200000, "address": "bc1pkxxuaxr3knq5t7dp8920wezdx3txml45ex5m07t3v9vh9pzgy33q3tpmnx" },
-    "operating_expenses": { "percentage": 0.01, "amount": 59300000, "address": "bc1ph7xn7wmg8hsqgc8lmg7da969ledr37l8ut5r5yqm5s085r7c2l7qqmryp0" }
+    "liquidity_reserve": {
+      "percentage": 0.3,
+      "amount": 1779000000,
+      "address": "bc1p5t82dw7ga3nyg2y8m3xuehmcjgyeul9ykj57f2c6h53d4rw0amqq5sterr"
+    },
+    "productive_projects": {
+      "percentage": 0.25,
+      "amount": 1482500000,
+      "address": "bc1pvsn33g4aufa2zt8mzv7veehztvzzndtm4fq2gcgnh7fv2m5duc7qe9x8rp"
+    },
+    "social_environmental_programs": {
+      "percentage": 0.15,
+      "amount": 889500000,
+      "address": "bc1p8ya2g9nlptws4fxmjsnpyn8swtk3kus7dm8dtnd2zev7lpjufvsshlu8qw"
+    },
+    "governance_and_alliances": {
+      "percentage": 0.15,
+      "amount": 889493154,
+      "address": "bc1ptur3s5amrqcn93r8k9rhrdjm5fmvukgdt63tjjgxrvkwmyqswqcsjy3q99"
+    },
+    "treasury": {
+      "percentage": 0.1,
+      "amount": 593000000,
+      "address": "bc1pl8qtw4g9afscmctydmv56mak4m9leqxyqlvqgxaltj2d5wt9wteqqgpdug"
+    },
+    "team_and_advisors": {
+      "percentage": 0.04,
+      "amount": 237200000,
+      "address": "bc1pkxxuaxr3knq5t7dp8920wezdx3txml45ex5m07t3v9vh9pzgy33q3tpmnx"
+    },
+    "operating_expenses": {
+      "percentage": 0.01,
+      "amount": 59300000,
+      "address": "bc1ph7xn7wmg8hsqgc8lmg7da969ledr37l8ut5r5yqm5s085r7c2l7qqmryp0"
+    }
   },
   "custody": {
     "model": "multi-signature 3-of-5 coordinated with PSBT (BIP 174); address/script evidence pending",
     "implementation_stage": "design declaration; production deployment is not evidenced by this repository",
-    "participants": [ "Issuer", "Auditor", "Independent Partner" ],
+    "participants": [
+      "Issuer",
+      "Auditor",
+      "Independent Partner"
+    ],
     "signing_flow": "Authenticated request, policy/risk review, PSBT construction, external signer quorum, finalization, and Bitcoin broadcast",
     "private_key_policy": "Private keys must not be handled in browser code.",
     "rotation_policy": "semiannual signer rotation with public custody log"
@@ -116,9 +148,238 @@
       "verification_status": "pending independent evidence package"
     }
   },
+  "evidence_status_definitions": {
+    "VERIFIED_ONCHAIN": "Directly verified against Bitcoin mainnet or another stated on-chain source.",
+    "VERIFIED_SOURCE": "Verified against the canonical source file or Git object in this repository.",
+    "VERIFIED_BUILD": "Verified through a reproducible build or validation command.",
+    "VERIFIED_RUNTIME": "Verified in a running system or integration environment.",
+    "DOCUMENTED": "Documented in repository materials but not independently verified in this repository.",
+    "DECLARED": "Declared by project metadata or institutional documents without independent evidence attached here.",
+    "SIMULATED": "Established only by simulation or test fixture.",
+    "UNVERIFIED": "Pending evidence or external verification.",
+    "CONTRADICTED": "Contradicted by stronger evidence and requiring correction or explanation."
+  },
+  "ngf_genesis_audit_record": {
+    "component": "NGF•BTC•AM",
+    "record_type": "NGF Genesis Audit Record",
+    "status": "DOCUMENTED",
+    "source_of_truth_policy": "TXID, confirmed Bitcoin block, and deterministic Rune indexer output supersede PDF, HTML, or prose transcriptions.",
+    "declared_values": {
+      "rune_id": "923867:120",
+      "rune_symbol": "NGF•BTC•AM",
+      "txid": "4c0b2416f3dd122025f89a62d7ff265fcee8d00e0fabd874669617cf85437c82",
+      "block": 923867,
+      "transaction_index": 120,
+      "timestamp": "2025-11-16T05:24:23Z",
+      "total_supply": 5930000000,
+      "decimals": 0,
+      "mintable": false,
+      "burnable": false,
+      "premine": 5930000000
+    },
+    "forensic_verification_steps": [
+      "Fetch raw transaction by TXID from a trusted Bitcoin Core node or indexer.",
+      "Confirm containing block hash, height, timestamp, and transaction index.",
+      "Decode the Runestone and reconstruct etching terms.",
+      "Confirm Rune ID, symbol, supply, divisibility, premine, mint terms, and burn semantics.",
+      "Reconstruct UTXO distribution and outpoint-level Rune balances.",
+      "Record each claim in evidence_matrix with the strongest available evidence status."
+    ],
+    "current_limitations": [
+      "This repository does not include a Bitcoin Core node, ord/runes indexer, or blocks.ts source module.",
+      "On-chain values remain DOCUMENTED until verified against an external or local canonical Bitcoin/Rune source.",
+      "The etching.op_return field is preserved as literal declared metadata and is interpreted through separate evidence notes."
+    ]
+  },
+  "evidence_matrix": [
+    {
+      "component": "NGF•BTC•AM",
+      "property": "protocol",
+      "value": "Runes Protocol on Bitcoin L1",
+      "status": "VERIFIED_SOURCE",
+      "source": "ngf-asset.json",
+      "network": "Bitcoin Mainnet",
+      "block": null,
+      "txid": null,
+      "evidence": "ngf-asset.json:8",
+      "notes": "Repository metadata now identifies Runes as the primary protocol."
+    },
+    {
+      "component": "NGF•BTC•AM",
+      "property": "rune_id",
+      "value": "923867:120",
+      "status": "DOCUMENTED",
+      "source": "ngf-asset.json and README.md",
+      "network": "Bitcoin Mainnet",
+      "block": 923867,
+      "txid": "4c0b2416f3dd122025f89a62d7ff265fcee8d00e0fabd874669617cf85437c82",
+      "evidence": "ngf-asset.json:2-3; README.md:25-27",
+      "notes": "Requires Rune indexer confirmation before marking VERIFIED_ONCHAIN."
+    },
+    {
+      "component": "NGF•BTC•AM",
+      "property": "etching_txid",
+      "value": "4c0b2416f3dd122025f89a62d7ff265fcee8d00e0fabd874669617cf85437c82",
+      "status": "DOCUMENTED",
+      "source": "ngf-asset.json and README.md",
+      "network": "Bitcoin Mainnet",
+      "block": 923867,
+      "txid": "4c0b2416f3dd122025f89a62d7ff265fcee8d00e0fabd874669617cf85437c82",
+      "evidence": "ngf-asset.json:35; README.md:89",
+      "notes": "Requires direct Bitcoin transaction lookup before marking VERIFIED_ONCHAIN."
+    },
+    {
+      "component": "NGF•BTC•AM",
+      "property": "etching_block",
+      "value": 923867,
+      "status": "DOCUMENTED",
+      "source": "ngf-asset.json and README.md",
+      "network": "Bitcoin Mainnet",
+      "block": 923867,
+      "txid": "4c0b2416f3dd122025f89a62d7ff265fcee8d00e0fabd874669617cf85437c82",
+      "evidence": "ngf-asset.json:33; README.md:87",
+      "notes": "Requires block inclusion verification before marking VERIFIED_ONCHAIN."
+    },
+    {
+      "component": "NGF•BTC•AM",
+      "property": "etching_timestamp",
+      "value": "2025-11-16T05:24:23Z",
+      "status": "DOCUMENTED",
+      "source": "ngf-asset.json and README.md",
+      "network": "Bitcoin Mainnet",
+      "block": 923867,
+      "txid": "4c0b2416f3dd122025f89a62d7ff265fcee8d00e0fabd874669617cf85437c82",
+      "evidence": "ngf-asset.json:36; README.md:88",
+      "notes": "Any date discrepancy must be resolved by confirmed block timestamp."
+    },
+    {
+      "component": "NGF•BTC•AM",
+      "property": "total_supply",
+      "value": 5930000000,
+      "status": "DOCUMENTED",
+      "source": "ngf-asset.json and README.md",
+      "network": "Bitcoin Mainnet",
+      "block": 923867,
+      "txid": "4c0b2416f3dd122025f89a62d7ff265fcee8d00e0fabd874669617cf85437c82",
+      "evidence": "ngf-asset.json:71; README.md:33",
+      "notes": "Requires Runestone etching reconstruction before marking VERIFIED_ONCHAIN."
+    },
+    {
+      "component": "NGF•BTC•AM",
+      "property": "decimals",
+      "value": 0,
+      "status": "DOCUMENTED",
+      "source": "ngf-asset.json and README.md",
+      "network": "Bitcoin Mainnet",
+      "block": 923867,
+      "txid": "4c0b2416f3dd122025f89a62d7ff265fcee8d00e0fabd874669617cf85437c82",
+      "evidence": "ngf-asset.json:72; README.md:34",
+      "notes": "Requires Runestone etching reconstruction before marking VERIFIED_ONCHAIN."
+    },
+    {
+      "component": "NGF•BTC•AM",
+      "property": "mintable",
+      "value": false,
+      "status": "DOCUMENTED",
+      "source": "ngf-asset.json and README.md",
+      "network": "Bitcoin Mainnet",
+      "block": 923867,
+      "txid": "4c0b2416f3dd122025f89a62d7ff265fcee8d00e0fabd874669617cf85437c82",
+      "evidence": "ngf-asset.json:73; README.md:35",
+      "notes": "Requires Rune terms verification before marking VERIFIED_ONCHAIN."
+    },
+    {
+      "component": "NGF•BTC•AM",
+      "property": "burnable",
+      "value": false,
+      "status": "DOCUMENTED",
+      "source": "ngf-asset.json and README.md",
+      "network": "Bitcoin Mainnet",
+      "block": 923867,
+      "txid": "4c0b2416f3dd122025f89a62d7ff265fcee8d00e0fabd874669617cf85437c82",
+      "evidence": "ngf-asset.json:74; README.md:36",
+      "notes": "Requires protocol-level burn semantics review before marking VERIFIED_ONCHAIN."
+    },
+    {
+      "component": "NGF•BTC•AM",
+      "property": "allocation",
+      "value": "Declared 100% allocation across listed addresses",
+      "status": "DECLARED",
+      "source": "ngf-asset.json allocation and references.holders_list",
+      "network": "Bitcoin Mainnet",
+      "block": null,
+      "txid": null,
+      "evidence": "ngf-asset.json:83-90; ngf-asset.json:154-162",
+      "notes": "Needs UTXO-to-Rune balance reconstruction for forensic verification."
+    },
+    {
+      "component": "custody",
+      "property": "quorum",
+      "value": "3/5",
+      "status": "UNVERIFIED",
+      "source": "Project declaration",
+      "network": "Bitcoin Mainnet",
+      "block": null,
+      "txid": null,
+      "evidence": "ngf-asset.json:92-99; README.md:107-109",
+      "notes": "No script, address, xpub set, signer attestation, or PSBT ceremony evidence is included here."
+    },
+    {
+      "component": "custody",
+      "property": "psbt_workflow",
+      "value": "Design declaration",
+      "status": "DOCUMENTED",
+      "source": "ngf-asset.json and README.md",
+      "network": "Bitcoin Mainnet",
+      "block": null,
+      "txid": null,
+      "evidence": "ngf-asset.json:93-98; README.md:109",
+      "notes": "Documents intended flow only; not runtime evidence."
+    },
+    {
+      "component": "Taproot Assets",
+      "property": "relationship_to_ngf",
+      "value": "Separate optional layer; no 1:1 wrapper declared",
+      "status": "VERIFIED_SOURCE",
+      "source": "ngf-asset.json and README.md",
+      "network": "Bitcoin Mainnet",
+      "block": null,
+      "txid": null,
+      "evidence": "ngf-asset.json:23-25; README.md:77",
+      "notes": "Prevents interpreting compatibility as wrapping."
+    },
+    {
+      "component": "Lightning",
+      "property": "relationship_to_ngf",
+      "value": "Payment/liquidity layer requiring separate reconciliation",
+      "status": "VERIFIED_SOURCE",
+      "source": "ngf-asset.json and README.md",
+      "network": "Bitcoin Mainnet",
+      "block": null,
+      "txid": null,
+      "evidence": "ngf-asset.json:27-29; README.md:78",
+      "notes": "Does not alter NGF L1 Rune state by itself."
+    },
+    {
+      "component": "mempool.blocks",
+      "property": "BLK-001_to_BLK-015",
+      "value": "Not present in this repository",
+      "status": "UNVERIFIED",
+      "source": "Repository file inventory",
+      "network": null,
+      "block": null,
+      "txid": null,
+      "evidence": "README.md; ngf-asset.json; ngf-asset-schema.json; .github/workflows/validate-schema.yml",
+      "notes": "Requires NESGESFinance.mempool.space or the exact blocks.ts source to audit or patch."
+    }
+  ],
   "governance": {
     "model": "Advisory ecosystem governance with corporate execution",
-    "voting_rights": [ "ecosystem parameter consultation", "proposal signaling", "productive allocation guidance" ],
+    "voting_rights": [
+      "ecosystem parameter consultation",
+      "proposal signaling",
+      "productive allocation guidance"
+    ],
     "quorum": 0.66,
     "voting_weight_policy": "balanced"
   },
@@ -152,13 +413,41 @@
     "unisat_listing": "https://unisat.io/runes/NGF%E2%80%A2BTC%E2%80%A2AM/",
     "mempool_tx": "https://mempool.space/tx/4c0b2416f3dd122025f89a62d7ff265fcee8d00e0fabd874669617cf85437c82",
     "holders_list": [
-      { "address": "bc1p5t82dw7ga3nyg2y8m3xuehmcjgyeul9ykj57f2c6h53d4rw0amqq5sterr", "percentage": 0.30, "amount": 1779000000 },
-      { "address": "bc1pvsn33g4aufa2zt8mzv7veehztvzzndtm4fq2gcgnh7fv2m5duc7qe9x8rp", "percentage": 0.25, "amount": 1482500000 },
-      { "address": "bc1p8ya2g9nlptws4fxmjsnpyn8swtk3kus7dm8dtnd2zev7lpjufvsshlu8qw", "percentage": 0.15, "amount": 889500000 },
-      { "address": "bc1ptur3s5amrqcn93r8k9rhrdjm5fmvukgdt63tjjgxrvkwmyqswqcsjy3q99", "percentage": 0.15, "amount": 889493154 },
-      { "address": "bc1pl8qtw4g9afscmctydmv56mak4m9leqxyqlvqgxaltj2d5wt9wteqqgpdug", "percentage": 0.10, "amount": 593000000 },
-      { "address": "bc1pkxxuaxr3knq5t7dp8920wezdx3txml45ex5m07t3v9vh9pzgy33q3tpmnx", "percentage": 0.04, "amount": 237200000 },
-      { "address": "bc1ph7xn7wmg8hsqgc8lmg7da969ledr37l8ut5r5yqm5s085r7c2l7qqmryp0", "percentage": 0.01, "amount": 59300000 }
+      {
+        "address": "bc1p5t82dw7ga3nyg2y8m3xuehmcjgyeul9ykj57f2c6h53d4rw0amqq5sterr",
+        "percentage": 0.3,
+        "amount": 1779000000
+      },
+      {
+        "address": "bc1pvsn33g4aufa2zt8mzv7veehztvzzndtm4fq2gcgnh7fv2m5duc7qe9x8rp",
+        "percentage": 0.25,
+        "amount": 1482500000
+      },
+      {
+        "address": "bc1p8ya2g9nlptws4fxmjsnpyn8swtk3kus7dm8dtnd2zev7lpjufvsshlu8qw",
+        "percentage": 0.15,
+        "amount": 889500000
+      },
+      {
+        "address": "bc1ptur3s5amrqcn93r8k9rhrdjm5fmvukgdt63tjjgxrvkwmyqswqcsjy3q99",
+        "percentage": 0.15,
+        "amount": 889493154
+      },
+      {
+        "address": "bc1pl8qtw4g9afscmctydmv56mak4m9leqxyqlvqgxaltj2d5wt9wteqqgpdug",
+        "percentage": 0.1,
+        "amount": 593000000
+      },
+      {
+        "address": "bc1pkxxuaxr3knq5t7dp8920wezdx3txml45ex5m07t3v9vh9pzgy33q3tpmnx",
+        "percentage": 0.04,
+        "amount": 237200000
+      },
+      {
+        "address": "bc1ph7xn7wmg8hsqgc8lmg7da969ledr37l8ut5r5yqm5s085r7c2l7qqmryp0",
+        "percentage": 0.01,
+        "amount": 59300000
+      }
     ]
   }
 }
