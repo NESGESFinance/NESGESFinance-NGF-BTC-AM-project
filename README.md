@@ -28,7 +28,8 @@ La información aquí publicada es **institucional, técnica e informativa**. No
 | **Nombre** | NGF•BTC•AM — NESGESFinance Utility Rune |
 | **Naturaleza** | Utility token / Fungible Rune |
 | **Red** | Bitcoin Mainnet |
-| **Protocolo** | Runes v1.0, Taproot Assets, Lightning L2 |
+| **Protocolo primario** | Runes Protocol sobre Bitcoin L1 |
+| **Capas relacionadas** | Lightning y Taproot Assets se tratan como capas separadas u opcionales, no como envoltorios automáticos de NGF•BTC•AM |
 | **Supply total** | 5.930.000.000 |
 | **Divisibilidad** | 0 |
 | **Mintable** | No |
@@ -64,9 +65,18 @@ Cada proyecto debe operar con **SPV, activo subyacente, expediente, reglamento d
 
 ## Arquitectura de activos digitales
 
-- **NGF•BTC•AM**: Rune de utilidad sobre Bitcoin L1 con supply fijo, divisibilidad 0 y política no inflacionaria.  
-- **Ordinals de proyecto**: series independientes por proyecto con hashes documentales, whitelist y marco jurídico específico.  
+- **NGF•BTC•AM**: Rune de utilidad sobre Bitcoin L1 con supply fijo, divisibilidad 0 y política no inflacionaria. Su estado debe reconciliarse por grafo UTXO, outpoints y Runestones; no debe modelarse como balance abstracto tipo ERC-20.  
+- **Ordinals de proyecto**: series independientes por proyecto con hashes documentales, whitelist y marco jurídico específico. El protocolo Ordinals no determina por sí mismo si un activo es valor, utilidad, certificado o registro; la clasificación depende de la documentación, derechos asociados y jurisdicción de cada serie.  
 - **Stable Sats**: capa complementaria propuesta para representaciones vinculadas a fiduciarias o commodities, sujeta a reservas y documentación verificables.
+
+### Aclaraciones técnicas derivadas de auditoría
+
+- **Bitcoin como fuente de verdad:** el estado on-chain debe derivarse de Bitcoin L1; cualquier ledger interno debe reconciliarse contra transacciones, UTXO, Runes y evidencias verificables.
+- **Runes:** NGF•BTC•AM se documenta como Rune nativo sobre Bitcoin. Cualquier balance operativo debe provenir de indexación determinista de Runestones y outpoints.
+- **Ordinals:** se usan como registros, inscripciones o evidencias de proyecto cuando exista documentación específica. No convierten automáticamente un instrumento en security token ni en utility token.
+- **Taproot Assets:** es un protocolo separado basado en Taproot, proofs y `tapd`. Este repositorio no declara un wrapping 1:1 de NGF•BTC•AM hacia Taproot Assets.
+- **Lightning:** encaja como capa de pagos, liquidez o experiencia operativa. No altera el estado L1 de NGF•BTC•AM salvo que exista un mecanismo de reconciliación explícito.
+- **Bitcoin Core / mempool:** cualquier indexador futuro debe declarar la versión exacta de Bitcoin Core y sus supuestos sobre mempool, RBF, package relay, reorgs y notificaciones de bloque.
 
 ---
 
@@ -96,7 +106,7 @@ Cada proyecto debe operar con **SPV, activo subyacente, expediente, reglamento d
 
 **Distribución declarada:** 100%  
 **Vesting declarado:** cliff de 6 meses y liberación lineal posterior durante 12–18 meses  
-**Custodia declarada:** multifirma 3/5 P2SH, rotación semestral y bitácora pública
+**Custodia declarada:** diseño multifirma 3/5 coordinado mediante PSBT, rotación semestral y bitácora pública. Este repositorio no contiene evidencia criptográfica suficiente para certificar una custodia productiva.
 
 ---
 
@@ -109,7 +119,7 @@ Cada proyecto debe operar con **SPV, activo subyacente, expediente, reglamento d
 - **F4 · Emisión L1:** Ordinals, anclaje, multisig y oráculo  
 - **F5–F6 · Aprobación y operación:** launchpad, snapshots, reportes y distribuciones
 
-La participación exige **KYC/AML**, verificación de origen de fondos, dirección Bitcoin habilitada y revisión documental de cada serie. Todo rendimiento proyectado debe tratarse como **objetivo y no como garantía**.
+La participación exige **KYC/AML**, verificación de origen de fondos, dirección Bitcoin habilitada y revisión documental de cada serie. Las evidencias de cumplimiento deben mantenerse fuera de datos sensibles públicos y sólo anclar compromisos criptográficos mínimos cuando sea necesario. Todo rendimiento proyectado debe tratarse como **objetivo y no como garantía**.
 
 ---
 
@@ -136,11 +146,13 @@ La participación exige **KYC/AML**, verificación de origen de fondos, direcci�
 
 ## Transparencia, seguridad y trazabilidad
 
-- Bitcoin L1, Runes, Ordinals, Lightning Network prevista y Taproot Assets  
-- Custodia multifirma y hardware wallets  
-- Hashes SHA-256 anclados en Bitcoin  
+- Bitcoin L1, Runes, Ordinals, Lightning Network prevista y Taproot Assets como capas separadas  
+- Custodia multifirma, PSBT y hardware wallets como arquitectura declarada pendiente de evidencia productiva verificable  
+- Hashes SHA-256 o compromisos criptográficos mínimos anclados en Bitcoin cuando sean necesarios  
 - Bitácora de custodia, TXID de distribuciones y metadata pública  
 - Separación entre explorador público y datos sensibles de cumplimiento
+
+La conformidad regulatoria no debe tratarse como insignia estática. Debe respaldarse mediante expedientes versionados con jurisdicción, fecha de evaluación, base legal, evidencia, responsable y vencimiento o fecha de revisión.
 
 ---
 

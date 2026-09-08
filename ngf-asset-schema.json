@@ -12,6 +12,46 @@
     "type": { "type": "string", "enum": ["Fungible Rune"] },
     "network": { "type": "string" },
     "protocol": { "type": "string" },
+    "protocol_layers": {
+      "type": "object",
+      "properties": {
+        "primary": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "network": { "type": "string" },
+            "state_model": { "type": "string" },
+            "role": { "type": "string" }
+          }
+        },
+        "bitcoin_core": {
+          "type": "object",
+          "properties": {
+            "compatibility_policy": { "type": "string" }
+          }
+        },
+        "ordinals": {
+          "type": "object",
+          "properties": {
+            "role": { "type": "string" },
+            "classification_note": { "type": "string" }
+          }
+        },
+        "taproot_assets": {
+          "type": "object",
+          "properties": {
+            "role": { "type": "string" },
+            "status": { "type": "string" }
+          }
+        },
+        "lightning": {
+          "type": "object",
+          "properties": {
+            "role": { "type": "string" }
+          }
+        }
+      }
+    },
     "version": { "type": "string" },
 
     "etching": {
@@ -61,6 +101,16 @@
       }
     },
 
+    "state_model": {
+      "type": "object",
+      "properties": {
+        "source_of_truth": { "type": "string" },
+        "asset_state": { "type": "string" },
+        "internal_ledger_policy": { "type": "string" },
+        "unsupported_model": { "type": "string" }
+      }
+    },
+
     "supply": {
       "type": "object",
       "properties": {
@@ -98,10 +148,13 @@
       "type": "object",
       "properties": {
         "model": { "type": "string" },
+        "implementation_stage": { "type": "string" },
         "participants": {
           "type": "array",
           "items": { "type": "string" }
         },
+        "signing_flow": { "type": "string" },
+        "private_key_policy": { "type": "string" },
         "rotation_policy": { "type": "string" }
       }
     },
@@ -112,7 +165,17 @@
         "public_dashboard_url": { "type": "string" },
         "explorer_url": { "type": "string" },
         "proof_of_reserves": { "type": "string" },
-        "audit_policy": { "type": "string" }
+        "audit_policy": { "type": "string" },
+        "evidence_model": {
+          "type": "object",
+          "properties": {
+            "required_fields": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "verification_status": { "type": "string" }
+          }
+        }
       }
     },
 
@@ -135,7 +198,11 @@
         "taproot_compatibility": { "type": "boolean" },
         "lightning_compatibility": { "type": "boolean" },
         "api_schema": { "type": "string" },
-        "commitment_bytes": { "type": "string" }
+        "commitment_bytes": { "type": "string" },
+        "indexer_requirements": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
       }
     },
 
@@ -155,6 +222,8 @@
         "documentation_standard": { "type": "string" },
         "asset_category": { "type": "string" },
         "record_persistence": { "type": "string" },
+        "ordinals_classification_note": { "type": "string" },
+        "compliance_model": { "type": "string" },
         "disclaimer": { "type": "string" }
       }
     },

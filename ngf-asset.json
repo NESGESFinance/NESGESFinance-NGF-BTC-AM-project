@@ -5,7 +5,29 @@
   "name": "NGF•BTC•AM — NESGESFinance Utility Rune",
   "type": "Fungible Rune",
   "network": "Bitcoin Mainnet",
-  "protocol": "Runes v1.0, Taproot Assets, Lightning L2",
+  "protocol": "Runes Protocol on Bitcoin L1",
+  "protocol_layers": {
+    "primary": {
+      "name": "Runes",
+      "network": "Bitcoin Mainnet",
+      "state_model": "UTXO graph with Runestone state transitions and outpoint-level NGF balances",
+      "role": "Native representation of NGF•BTC•AM"
+    },
+    "bitcoin_core": {
+      "compatibility_policy": "Any future indexer must pin the deployed Bitcoin Core version and document assumptions for chain state, UTXO, mempool, RBF, package relay, reorg handling, and block notifications."
+    },
+    "ordinals": {
+      "role": "Project records, inscriptions, certificates, or metadata only when separately documented",
+      "classification_note": "Ordinals do not determine legal classification by protocol; classification depends on rights, issuer documents, jurisdiction, distribution, and marketing."
+    },
+    "taproot_assets": {
+      "role": "Separate optional Bitcoin asset protocol using Taproot proofs and tapd; not a default wrapper for NGF Runes or Ordinals",
+      "status": "Conceptual compatibility only; no 1:1 Taproot Assets representation is declared in this repository."
+    },
+    "lightning": {
+      "role": "Payment and liquidity layer; it does not change NGF L1 Rune state without a separately documented reconciliation mechanism."
+    }
+  },
   "version": "1.0",
   "etching": {
     "block": 923867,
@@ -39,6 +61,12 @@
       "Internal unit-of-account reference for thresholds and fees"
     ]
   },
+  "state_model": {
+    "source_of_truth": "Bitcoin L1",
+    "asset_state": "Runestone parser plus UTXO/outpoint reconciliation",
+    "internal_ledger_policy": "Any exchange or application ledger must reconcile strictly against Bitcoin transactions, Rune balances, and independently verifiable evidence.",
+    "unsupported_model": "NGF•BTC•AM must not be modeled as an ERC-20-style balance[address] system without a deterministic Rune indexer."
+  },
   "supply": {
     "total": 5930000000,
     "decimals": 0,
@@ -62,15 +90,31 @@
     "operating_expenses": { "percentage": 0.01, "amount": 59300000, "address": "bc1ph7xn7wmg8hsqgc8lmg7da969ledr37l8ut5r5yqm5s085r7c2l7qqmryp0" }
   },
   "custody": {
-    "model": "multi-signature (3-of-5 P2SH)",
+    "model": "multi-signature 3-of-5 coordinated with PSBT (BIP 174); address/script evidence pending",
+    "implementation_stage": "design declaration; production deployment is not evidenced by this repository",
     "participants": [ "Issuer", "Auditor", "Independent Partner" ],
+    "signing_flow": "Authenticated request, policy/risk review, PSBT construction, external signer quorum, finalization, and Bitcoin broadcast",
+    "private_key_policy": "Private keys must not be handled in browser code.",
     "rotation_policy": "semiannual signer rotation with public custody log"
   },
   "audit_and_transparency": {
     "public_dashboard_url": "https://github.com/NESGESFinance/NESGESFinanceTrust/tree/main/frontend",
     "explorer_url": "https://mempool.space/tx/4c0b2416f3dd122025f89a62d7ff265fcee8d00e0fabd874669617cf85437c82",
-    "proof_of_reserves": "public custody log, on-chain evidence, and IPFS references",
-    "audit_policy": "technical audit phase, connector testing, and periodic evidence review"
+    "proof_of_reserves": "evidence model pending; not a static certification",
+    "audit_policy": "technical audit phase, connector testing, and periodic evidence review",
+    "evidence_model": {
+      "required_fields": [
+        "jurisdiction",
+        "asset",
+        "service",
+        "assessment_date",
+        "legal_basis",
+        "provider_status",
+        "evidence_uri",
+        "expires_or_review_date"
+      ],
+      "verification_status": "pending independent evidence package"
+    }
   },
   "governance": {
     "model": "Advisory ecosystem governance with corporate execution",
@@ -82,7 +126,13 @@
     "taproot_compatibility": true,
     "lightning_compatibility": true,
     "api_schema": "ngf_btc_asset_model_v1",
-    "commitment_bytes": "pending"
+    "commitment_bytes": "pending",
+    "indexer_requirements": [
+      "Bitcoin Core version pinning",
+      "Runestone parsing",
+      "UTXO/outpoint balance reconciliation",
+      "reorg, RBF, double-spend, burn, and transfer test coverage"
+    ]
   },
   "status": {
     "issued": true,
@@ -94,6 +144,8 @@
     "documentation_standard": "Documento Maestro Institucional 2026 / NESGESFinance Corporate Registry 11-2025",
     "asset_category": "Corporate Hybrid RWA Support Unit",
     "record_persistence": "perpetual",
+    "ordinals_classification_note": "Ordinals are not securities or utility instruments by protocol; classification must be assessed per project, rights package, issuer documents, jurisdiction, distribution method, and marketing.",
+    "compliance_model": "Compliance claims must be supported by versioned evidence, not by static interface badges.",
     "disclaimer": "This repository publishes institutional, technical, and informational material for NGF•BTC•AM. The asset is described as a utility Rune for identity, access, and functional participation within the NESGESFinance ecosystem. It does not by itself grant direct economic rights over project series and does not constitute a public securities offering, a public market, custody services, or financial, legal, or tax advice. Any formal issuance or project-specific rights must arise exclusively from the applicable series documentation and governing regulatory framework."
   },
   "references": {
