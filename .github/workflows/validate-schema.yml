@@ -52,3 +52,102 @@ jobs:
 
       - name: Validate JSON with JSON Schema
         run: python -m jsonschema -i "$ASSET_FILE" "$SCHEMA_FILE"
+
+      - name: Validate NGF•BTC•AM metadata semantics
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          python - <<'PY'
+          import json
+          import re
+          from pathlib import Path
+
+          asset_path = Path("ngf-asset.json")
+          readme_path = Path("README.md")
+          asset = json.loads(asset_path.read_text(encoding="utf-8"))
+          readme = readme_path.read_text(encoding="utf-8")
+
+          errors = []
+          warnings = []
+
+          statuses = set(asset.get("evidence_status_definitions", {}))
+          expected_statuses = {
+              "VERIFIED_ONCHAIN",
+              "VERIFIED_SOURCE",
+              "VERIFIED_BUILD",
+              "VERIFIED_RUNTIME",
+              "DOCUMENTED",
+              "DECLARED",
+              "SIMULATED",
+              "UNVERIFIED",
+              "CONTRADICTED",
+          }
+          if statuses != expected_statuses:
+              errors.append(
+                  "evidence_status_definitions must exactly match the expected evidence status set"
+              )
+
+          for index, entry in enumerate(asset.get("evidence_matrix", [])):
+              status = entry.get("status")
+              if status not in expected_statuses:
+                  errors.append(f"evidence_matrix[{index}] has invalid status: {status!r}")
+              if status == "VERIFIED_ONCHAIN":
+                  missing = [
+                      field
+                      for field in ("network", "evidence")
+                      if not entry.get(field)
+                  ]
+                  if missing:
+                      errors.append(
+                          f"evidence_matrix[{index}] is VERIFIED_ONCHAIN but lacks {', '.join(missing)}"
+                      )
+
+          state_machine = asset.get("ngf_state_machine", {})
+          states = {state.get("name") for state in state_machine.get("states", [])}
+          states.discard(None)
+          for index, transition in enumerate(state_machine.get("transitions", [])):
+              source = transition.get("from")
+              target = transition.get("to")
+              if source not in states or target not in states:
+                  errors.append(
+                      f"ngf_state_machine.transitions[{index}] references an undefined state: {source!r} -> {target!r}"
+                  )
+              if not transition.get("requires"):
+                  errors.append(
+                      f"ngf_state_machine.transitions[{index}] must document at least one requirement"
+                  )
+
+          total_supply = asset.get("supply", {}).get("total")
+          allocation = asset.get("allocation", {})
+          allocation_amount = sum(item.get("amount", 0) for item in allocation.values())
+          allocation_percentage = sum(item.get("percentage", 0) for item in allocation.values())
+          if isinstance(total_supply, int) and allocation_amount > total_supply:
+              errors.append(
+                  f"allocation amount {allocation_amount} exceeds total supply {total_supply}"
+              )
+          if allocation_percentage > 1.00000001:
+              errors.append(f"allocation percentage exceeds 100%: {allocation_percentage}")
+          if isinstance(total_supply, int) and allocation_amount != total_supply:
+              warnings.append(
+                  f"allocation amount {allocation_amount} does not exactly equal declared supply {total_supply}; keep as DECLARED until reconciled"
+              )
+
+          visible_readme = re.sub(r"https?://\\S+", "", readme)
+          if "NGF-BTC-AM" in visible_readme:
+              errors.append("README visible text must use NGF•BTC•AM, not NGF-BTC-AM")
+
+          protocol = asset.get("protocol")
+          if protocol != "Runes Protocol on Bitcoin L1":
+              errors.append("protocol must identify Runes Protocol on Bitcoin L1 as the primary protocol")
+
+          for warning in warnings:
+              print(f"::warning::{warning}")
+
+          if errors:
+              for error in errors:
+                  print(f"::error::{error}")
+              raise SystemExit(1)
+
+          print("NGF•BTC•AM metadata semantic validation passed")
+          PY

@@ -142,6 +142,17 @@ El campo `ngf_reconciliation_engine` de `ngf-asset.json` define entradas, salida
 
 ---
 
+## Validación reproducible
+
+El workflow `.github/workflows/validate-schema.yml` valida dos niveles:
+
+1. **Estructura JSON:** `ngf-asset.json` debe cumplir `ngf-asset-schema.json`.
+2. **Semántica mínima NGF:** los estados de evidencia deben coincidir con el estándar, la matriz no puede usar estados inválidos, las transiciones del state machine deben apuntar a estados definidos, las afirmaciones `VERIFIED_ONCHAIN` deben incluir evidencia mínima y el nombre visible debe conservar `NGF•BTC•AM`.
+
+La validación semántica también emite una advertencia si la suma declarada de allocations no coincide exactamente con el supply, pero no la convierte en prueba on-chain. Esa diferencia debe resolverse mediante reconciliación Bitcoin/Rune antes de usar balances operativos.
+
+---
+
 ## Tokenómica oficial v5.0
 
 | Categoría | % | NGF | Propósito |
@@ -223,7 +234,7 @@ La conformidad regulatoria no debe tratarse como insignia estática. Debe respal
 |---|---|
 | `ngf-asset.json` | Metadata oficial del activo NGF•BTC•AM |
 | `ngf-asset-schema.json` | Esquema JSON para validación |
-| `.github/workflows/validate-schema.yml` | GitHub Actions workflow that verifies required files before schema validation |
+| `.github/workflows/validate-schema.yml` | GitHub Actions workflow that verifies required files, schema validation and NGF semantic metadata checks |
 
 ---
 
