@@ -373,6 +373,147 @@
       "notes": "Requires NESGESFinance.mempool.space or the exact blocks.ts source to audit or patch."
     }
   ],
+  "ngf_state_machine": {
+    "name": "NGF State Machine",
+    "status": "DOCUMENTED",
+    "scope": "Deterministic lifecycle model for NGF•BTC•AM as a Bitcoin L1 Rune.",
+    "source_of_truth": "Bitcoin L1 transactions interpreted by a deterministic Rune indexer.",
+    "states": [
+      {
+        "name": "GENESIS_DECLARED",
+        "description": "Repository metadata declares the Rune ID, etching transaction, supply, divisibility, mint terms, and initial allocation.",
+        "evidence_status": "DOCUMENTED"
+      },
+      {
+        "name": "ETCHING_VERIFIED",
+        "description": "The etching transaction, block inclusion, block timestamp, and transaction index are verified against Bitcoin.",
+        "evidence_status": "UNVERIFIED"
+      },
+      {
+        "name": "RUNESTONE_DECODED",
+        "description": "The Runestone is decoded and its etching terms are reconstructed from canonical transaction data.",
+        "evidence_status": "UNVERIFIED"
+      },
+      {
+        "name": "PREMINE_RECONSTRUCTED",
+        "description": "The initial NGF premine and destination outpoints are reconstructed from Rune state transitions.",
+        "evidence_status": "UNVERIFIED"
+      },
+      {
+        "name": "UTXO_DISTRIBUTED",
+        "description": "Current or historical outpoint-level NGF balances are derived from all relevant transfers.",
+        "evidence_status": "UNVERIFIED"
+      },
+      {
+        "name": "RECONCILED",
+        "description": "The sum of indexed outpoint balances reconciles with supply, burn semantics, and any documented allocations.",
+        "evidence_status": "UNVERIFIED"
+      }
+    ],
+    "transitions": [
+      {
+        "from": "GENESIS_DECLARED",
+        "to": "ETCHING_VERIFIED",
+        "requires": [
+          "Bitcoin transaction lookup by TXID",
+          "confirmed block height",
+          "confirmed block timestamp",
+          "transaction index match"
+        ]
+      },
+      {
+        "from": "ETCHING_VERIFIED",
+        "to": "RUNESTONE_DECODED",
+        "requires": [
+          "raw transaction bytes",
+          "Runestone parser",
+          "protocol-valid etching interpretation"
+        ]
+      },
+      {
+        "from": "RUNESTONE_DECODED",
+        "to": "PREMINE_RECONSTRUCTED",
+        "requires": [
+          "etching terms",
+          "premine amount",
+          "output mapping",
+          "Rune ID confirmation"
+        ]
+      },
+      {
+        "from": "PREMINE_RECONSTRUCTED",
+        "to": "UTXO_DISTRIBUTED",
+        "requires": [
+          "ordered Bitcoin blocks",
+          "Rune transfer interpretation",
+          "spent/outpoint tracking",
+          "reorg handling"
+        ]
+      },
+      {
+        "from": "UTXO_DISTRIBUTED",
+        "to": "RECONCILED",
+        "requires": [
+          "supply invariant",
+          "allocation comparison",
+          "burn accounting",
+          "independent evidence matrix entries"
+        ]
+      },
+      {
+        "from": "RECONCILED",
+        "to": "UTXO_DISTRIBUTED",
+        "requires": [
+          "new confirmed transfer",
+          "reorg",
+          "RBF replacement before confirmation",
+          "audit replay"
+        ]
+      }
+    ],
+    "invariants": [
+      "Bitcoin L1 remains the source of truth for on-chain NGF state.",
+      "A Rune balance belongs to an outpoint, not directly to an address-level ERC-20-style account.",
+      "Unknown values must remain null or UNVERIFIED; they must not be converted to zero.",
+      "Every VERIFIED_ONCHAIN claim must identify the network and sufficient transaction or block evidence.",
+      "The total indexed NGF balance plus protocol-valid burns must reconcile with verified supply before runtime use.",
+      "Any internal ledger balance must be traceable to indexed Bitcoin/Rune evidence."
+    ]
+  },
+  "ngf_reconciliation_engine": {
+    "name": "NGF Reconciliation Engine Requirements",
+    "status": "DOCUMENTED",
+    "purpose": "Define the minimum deterministic checks required before exchange, custody, governance, or RWA modules rely on NGF balances.",
+    "inputs": [
+      "Bitcoin Core block and transaction data",
+      "Runestone parser output",
+      "Rune ID 923867:120",
+      "known etching transaction and block",
+      "spent and unspent outpoint set",
+      "reorg/RBF event stream where available",
+      "evidence_matrix classifications"
+    ],
+    "outputs": [
+      "outpoint_to_ngf_balance",
+      "address_view derived from outpoints",
+      "allocation_reconciliation_report",
+      "supply_reconciliation_report",
+      "unverified_or_contradicted_claims_report"
+    ],
+    "minimum_checks": [
+      "Verify TXID, block height, block timestamp, and transaction index.",
+      "Decode Runestone and confirm Rune ID, divisibility, supply, premine, mint terms, and burn semantics.",
+      "Replay transfers from genesis to target height using deterministic block order.",
+      "Handle reorgs by rolling back affected heights and replaying canonical blocks.",
+      "Represent unavailable measurements as null or UNVERIFIED rather than zero.",
+      "Compare declared allocation addresses with reconstructed outpoint balances without treating declarations as proof."
+    ],
+    "non_goals": [
+      "Do not patch BLK-001 to BLK-015 without the actual blocks.ts source.",
+      "Do not infer security-token, commodity, or custody-production status from protocol metadata alone.",
+      "Do not expose private keys or signing authority to browser code."
+    ]
+  },
   "governance": {
     "model": "Advisory ecosystem governance with corporate execution",
     "voting_rights": [

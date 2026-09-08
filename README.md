@@ -115,6 +115,33 @@ La FASE II sobre `blocks.ts`, `$updateBlocks()` y hallazgos BLK-001 a BLK-015 no
 
 ---
 
+## NGF State Machine y Reconciliation Engine
+
+El siguiente paso técnico implementado en la metadata es un modelo formal para reconstruir el estado de NGF•BTC•AM desde Bitcoin L1:
+
+```text
+GENESIS_DECLARED
+  → ETCHING_VERIFIED
+  → RUNESTONE_DECODED
+  → PREMINE_RECONSTRUCTED
+  → UTXO_DISTRIBUTED
+  → RECONCILED
+```
+
+Este modelo no afirma que la verificación on-chain ya esté completa. Define los estados, transiciones e invariantes mínimos que debe cumplir un indexador antes de que Exchange, custodia, gobernanza o RWA dependan de balances NGF.
+
+Invariantes principales:
+
+- Bitcoin L1 es la fuente de verdad del estado NGF.
+- El balance Rune pertenece a outpoints; una vista por dirección debe derivarse de UTXOs.
+- Los valores desconocidos deben mantenerse como `null` o `UNVERIFIED`, nunca como cero.
+- Cada afirmación `VERIFIED_ONCHAIN` debe incluir red y evidencia suficiente de transacción o bloque.
+- Todo ledger interno debe reconciliarse contra evidencia Bitcoin/Rune antes de uso operativo.
+
+El campo `ngf_reconciliation_engine` de `ngf-asset.json` define entradas, salidas, verificaciones mínimas y no-objetivos. La verificación externa del TXID queda pendiente hasta ejecutarla contra Bitcoin Core, ord/Runes indexer o una fuente indexada confiable.
+
+---
+
 ## Tokenómica oficial v5.0
 
 | Categoría | % | NGF | Propósito |

@@ -35,6 +35,27 @@
         "notes": { "type": ["string", "null"] }
       },
       "required": ["component", "property", "value", "status", "source"]
+    },
+    "stateDefinition": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "evidence_status": { "$ref": "#/definitions/evidenceStatus" }
+      },
+      "required": ["name", "description", "evidence_status"]
+    },
+    "stateTransition": {
+      "type": "object",
+      "properties": {
+        "from": { "type": "string" },
+        "to": { "type": "string" },
+        "requires": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "required": ["from", "to", "requires"]
     }
   },
 
@@ -268,6 +289,71 @@
       "items": { "$ref": "#/definitions/evidenceEntry" }
     },
 
+    "ngf_state_machine": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "status": { "$ref": "#/definitions/evidenceStatus" },
+        "scope": { "type": "string" },
+        "source_of_truth": { "type": "string" },
+        "states": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/stateDefinition" }
+        },
+        "transitions": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/stateTransition" }
+        },
+        "invariants": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "required": [
+        "name",
+        "status",
+        "scope",
+        "source_of_truth",
+        "states",
+        "transitions",
+        "invariants"
+      ]
+    },
+
+    "ngf_reconciliation_engine": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "status": { "$ref": "#/definitions/evidenceStatus" },
+        "purpose": { "type": "string" },
+        "inputs": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "outputs": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "minimum_checks": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "non_goals": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "required": [
+        "name",
+        "status",
+        "purpose",
+        "inputs",
+        "outputs",
+        "minimum_checks",
+        "non_goals"
+      ]
+    },
+
     "governance": {
       "type": "object",
       "properties": {
@@ -350,6 +436,8 @@
     "legal",
     "evidence_status_definitions",
     "ngf_genesis_audit_record",
-    "evidence_matrix"
+    "evidence_matrix",
+    "ngf_state_machine",
+    "ngf_reconciliation_engine"
   ]
 }
