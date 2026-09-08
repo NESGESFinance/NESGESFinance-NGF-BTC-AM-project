@@ -133,7 +133,7 @@ jobs:
                   f"allocation amount {allocation_amount} does not exactly equal declared supply {total_supply}; keep as DECLARED until reconciled"
               )
 
-          visible_readme = re.sub(r"https?://\\S+", "", readme)
+          visible_readme = re.sub(r"https?://\S+", "", readme)
           if "NGF-BTC-AM" in visible_readme:
               errors.append("README visible text must use NGF•BTC•AM, not NGF-BTC-AM")
 
