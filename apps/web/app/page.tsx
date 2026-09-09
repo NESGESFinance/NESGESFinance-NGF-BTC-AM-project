@@ -322,7 +322,14 @@ function FeesTicker({
 }
 
 export default function UnifiedApp() {
-  const [lang, setLang] = useState<Language>("ES");
+  const [lang, setLang] = useState<Language>(() => {
+    if (typeof window === "undefined") {
+      return "ES";
+    }
+
+    const savedLang = localStorage.getItem("nesges_lang");
+    return savedLang === "EN" ? "EN" : "ES";
+  });
   const [activeTab, setActiveTab] = useState<TabKey>("inscribe");
   const [isWalletOpen, setIsWalletOpen] = useState(false);
   const [wallet, setWallet] = useState<WalletState>({
@@ -342,13 +349,6 @@ export default function UnifiedApp() {
     contractHash:
       "4c0b2416f3dd122025f89a62d7ff265fcee8d00e0fabd874669617cf85437c82",
   });
-
-  useEffect(() => {
-    const savedLang = localStorage.getItem("nesges_lang") as Language | null;
-    if (savedLang === "ES" || savedLang === "EN") {
-      setLang(savedLang);
-    }
-  }, []);
 
   useEffect(() => {
     const controller = new AbortController();
