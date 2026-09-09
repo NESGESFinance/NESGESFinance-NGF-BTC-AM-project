@@ -199,6 +199,10 @@ const translations = {
     connectToValidate: "Conecta una dirección Taproot para consultar saldo y access gating.",
     onChainVerified: "Verificado on-chain",
     onChainPending: "Validación parcial o pendiente",
+    institutionalDisclaimer:
+      "Esta interfaz es institucional, técnica e informativa. No constituye oferta pública, asesoría financiera, jurídica o fiscal, ni certificación independiente.",
+    corporateSignature: "NESGESFinance Ecosystem S.A.S. BIC. & S.A.S. LLC.",
+    assetFooter: "NGF•BTC•AM · Bitcoin Mainnet",
   },
   EN: {
     brandName: "NESGESFinance",
@@ -300,6 +304,10 @@ const translations = {
     connectToValidate: "Connect a Taproot address to query balance and access gating.",
     onChainVerified: "On-chain verified",
     onChainPending: "Partial or pending validation",
+    institutionalDisclaimer:
+      "This interface is institutional, technical, and informational. It does not constitute a public offering, financial, legal, or tax advice, or an independent certification.",
+    corporateSignature: "NESGESFinance Ecosystem S.A.S. BIC. & S.A.S. LLC.",
+    assetFooter: "NGF•BTC•AM · Bitcoin Mainnet",
   },
 } as const;
 
@@ -1177,6 +1185,12 @@ export default function UnifiedApp() {
               </div>
             )}
           </section>
+
+          <footer className="mt-8 flex flex-col gap-2 border-t border-white/10 pt-6 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between">
+            <span>© 2026 {t.corporateSignature}</span>
+            <span>{t.assetFooter}</span>
+            <span className="max-w-2xl">{t.institutionalDisclaimer}</span>
+          </footer>
         </div>
 
         {isWalletOpen && (
