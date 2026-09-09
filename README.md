@@ -1,4 +1,4 @@
-# NGF•BTC•AM — información literal institucional actualizada
+# NGF•BTC•AM — Información Institucional Actualizada
 
 ![NESGESFinance Ecosystem](https://raw.githubusercontent.com/NESGESFinance/NESGESFinanceTrust/main/frontend/assets/img/NESGESFinance_Logo.jpg)
 ![NGF•BTC•AM](https://raw.githubusercontent.com/NESGESFinance/NESGESFinanceTrust/main/frontend/assets/img/NGF-BTC-AM.jpg)
@@ -6,7 +6,7 @@
 **NESGESFinance Ecosystem S.A.S. BIC. & LLC.**  
 Versión documental: **2026**
 
-Este repositorio consolida la información literal actualizada del activo **NGF•BTC•AM** y la alinea con la identidad visual e institucional publicada en el frontend de **NESGESFinanceTrust**.
+Este repositorio consolida la información literal actualizada del activo **NGF•BTC•AM** y la alinea con la identidad visual e institucional publicada en el frontend de **NESGESFinance.app**.
 
 ---
 
@@ -57,7 +57,7 @@ El token **no otorga derechos económicos directos sobre proyectos**. Los derech
 |---|---|---|
 | **NESGESFinance Ecosystem S.A.S. BIC** | Ecuador, Ibarra (Imbabura) · RUC 1091799299001 | Coordinación tecnológica y operaciones locales de impacto |
 | **NESGESFinance Ecosystem S.A.S. LLC** | Nuevo México, EE. UU. · File #3168825 · EIN 0008086872 | Propiedad intelectual, infraestructura tecnológica, cumplimiento y expansión internacional |
-| **NESGESFinanceTrust** | Pendiente de formalización / jurisdicción por definir | Capa patrimonial o fiduciaria propuesta para continuidad, reservas y administración separada |
+| **NESGESFinance.app** | Pendiente de formalización / jurisdicción por definir | Capa patrimonial o fiduciaria propuesta para continuidad, reservas y administración separada |
 
 Cada proyecto debe operar con **SPV, activo subyacente, expediente, reglamento de emisión, custodia, gobernanza y trazabilidad propios**.
 
@@ -235,7 +235,7 @@ La conformidad regulatoria no debe tratarse como insignia estática. Debe respal
 
 ## Referencias oficiales
 
-- Frontend institucional: [NESGESFinanceTrust/frontend](https://github.com/NESGESFinance/NESGESFinanceTrust/tree/main/frontend)
+- Frontend institucional: [NESGESFinance.app/frontend](https://github.com/NESGESFinance/NESGESFinanceTrust/tree/main/frontend)
 - Página institucional: [frontend/institucional.html](https://github.com/NESGESFinance/NESGESFinanceTrust/blob/main/frontend/institucional.html)
 - Página principal: [frontend/index.html](https://github.com/NESGESFinance/NESGESFinanceTrust/blob/main/frontend/index.html)
 - Whitepaper PDF: [NESGESFinance Ecosystem Mini Whitepaper Institucional 2026](https://github.com/NESGESFinance/NESGESFinanceTrust/blob/main/NESGESFinance%20Ecosystem%20Mini%20Whitepaper%20Institucional%202026%20(2).pdf)
@@ -255,7 +255,7 @@ La conformidad regulatoria no debe tratarse como insignia estática. Debe respal
 
 ## Licencia y aviso
 
-© **NESGESFinance Ecosystem S.A.S. BIC. & LLC.**  
+©**NESGESFinance Ecosystem S.A.S. BIC. & S.A.S. LLC.**  
 Todos los derechos reservados 2025–2026.
 
 Uso permitido únicamente dentro de la arquitectura técnica, institucional y documental de NESGESFinance.
