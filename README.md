@@ -85,7 +85,7 @@ Cada proyecto debe operar con **SPV, activo subyacente, expediente, reglamento d
 | Campo | Valor |
 |---|---|
 | **Bloque de etching** | 923.867 |
-| **Fecha de etching** | 16 de noviembre de 2025 · 10:24:23 UTC |
+| **Fecha de etching** | 16 de noviembre de 2025 · 05:24:23 UTC |
 | **TXID** | `4c0b2416f3dd122025f89a62d7ff265fcee8d00e0fabd874669617cf85437c82` |
 | **Fuentes de verificación** | UniSat, Mempool.space y Ord.io |
 
@@ -175,9 +175,8 @@ Advertencias activas:
 | Reserva estratégica y liquidez | 30% | 1.779.000.000 | Estabilidad operativa y liquidez |
 | Proyectos productivos | 25% | 1.482.500.000 | Desarrollo de proyectos tokenizados |
 | Sociales y ambientales | 15% | 889.500.000 | Impacto BIC |
-| Alianzas y gobernanza | 10% | 593.000.000 | Partnerships e incentivos |
+| Gobernanza y alianzas | 15% | 889.500.000 | Partnerships e incentivos |
 | Tesorería | 10% | 593.000.000 | Operaciones, desarrollo y costos legales |
-| Comunidad y staking | 5% | 296.500.000 | Incentivos comunitarios |
 | Equipo y asesores | 4% | 237.200.000 | Compensación con vesting |
 | Operativo inmediato | 1% | 59.300.000 | Gastos de lanzamiento |
 
