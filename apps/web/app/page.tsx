@@ -8,7 +8,6 @@ import React, {
   useState,
 } from "react";
 import {
-  Activity,
   ArrowRight,
   Check,
   CheckCircle2,
@@ -38,7 +37,7 @@ type WalletState = {
   runeBalance: number;
 };
 
-type Translation = (typeof translations)["ES"];
+type Translation = (typeof translations)[Language];
 
 type LanguageContextValue = {
   lang: Language;
