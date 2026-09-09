@@ -141,6 +141,29 @@ jobs:
           if protocol != "Runes Protocol on Bitcoin L1":
               errors.append("protocol must identify Runes Protocol on Bitcoin L1 as the primary protocol")
 
+          traceability = asset.get("architectural_claims_traceability", {})
+          if traceability.get("status") not in {"DOCUMENTED", "DECLARED"}:
+              errors.append(
+                  "architectural_claims_traceability must remain DOCUMENTED or DECLARED until independently verified"
+              )
+
+          verified_architecture_statuses = {
+              "VERIFIED_ONCHAIN",
+              "VERIFIED_SOURCE",
+              "VERIFIED_BUILD",
+              "VERIFIED_RUNTIME",
+          }
+          for index, claim in enumerate(traceability.get("claims", [])):
+              status = claim.get("status")
+              if status in verified_architecture_statuses:
+                  errors.append(
+                      f"architectural_claims_traceability.claims[{index}] is prematurely marked as {status}"
+                  )
+              if not claim.get("required_evidence_to_upgrade"):
+                  errors.append(
+                      f"architectural_claims_traceability.claims[{index}] must list required evidence to upgrade"
+                  )
+
           for warning in warnings:
               print(f"::warning::{warning}")
 
