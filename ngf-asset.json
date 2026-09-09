@@ -41,7 +41,7 @@
   },
   "issuer": {
     "entity_name": "NESGESFinance Ecosystem S.A.S.",
-    "jurisdiction": "LatAm Corporate Framework",
+    "jurisdiction": "Dual declared structure: Ecuador (Ibarra, Imbabura) S.A.S. BIC and New Mexico, U.S. S.A.S. LLC",
     "website": "https://nesgesfinance.org/",
     "contact_email": "info.nesgesfinance@gmail.com",
     "official_docs": [
@@ -98,7 +98,7 @@
     },
     "governance_and_alliances": {
       "percentage": 0.15,
-      "amount": 889493154,
+      "amount": 889500000,
       "address": "bc1ptur3s5amrqcn93r8k9rhrdjm5fmvukgdt63tjjgxrvkwmyqswqcsjy3q99"
     },
     "treasury": {
@@ -572,7 +572,7 @@
       {
         "address": "bc1ptur3s5amrqcn93r8k9rhrdjm5fmvukgdt63tjjgxrvkwmyqswqcsjy3q99",
         "percentage": 0.15,
-        "amount": 889493154
+        "amount": 889500000
       },
       {
         "address": "bc1pl8qtw4g9afscmctydmv56mak4m9leqxyqlvqgxaltj2d5wt9wteqqgpdug",
@@ -608,7 +608,7 @@
           "package manifest",
           "successful build artifact or CI run"
         ],
-        "notes": "Architecture target only; this repository does not contain the described Next.js application."
+        "notes": "This repository contains a Next.js application under apps/web; production-parity evidence remains pending."
       },
       {
         "component": "backend",
@@ -621,7 +621,7 @@
           "successful test/build output",
           "runtime endpoint evidence"
         ],
-        "notes": "No Axum backend source is present in this repository."
+        "notes": "This repository contains a Rust Axum backend under apps/api; production runtime evidence remains pending."
       },
       {
         "component": "indexer",
@@ -713,7 +713,7 @@
           "responsible legal review",
           "versioned evidence package"
         ],
-        "notes": "The PDF references Colombia in one section while this repository documents Ecuador/Ibarra; jurisdiction text requires reconciliation."
+        "notes": "Canonical repository declaration references Ecuador (Ibarra, Imbabura) and New Mexico, U.S.; any divergent wording in external documents requires legal reconciliation before production claims."
       },
       {
         "component": "document_control",
