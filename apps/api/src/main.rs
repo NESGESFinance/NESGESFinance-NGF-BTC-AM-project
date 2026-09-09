@@ -11,7 +11,10 @@ async fn main() {
         .await
         .expect("failed to bind NESGESFinance API listener");
 
-    println!("🚀 Servidor NESGESFinance API escuchando en http://{}", addr);
+    println!(
+        "🚀 Servidor NESGESFinance API escuchando en http://{}",
+        addr
+    );
 
     axum::serve(listener, app())
         .await

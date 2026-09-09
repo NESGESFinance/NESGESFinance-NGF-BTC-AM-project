@@ -608,12 +608,6 @@ export default function UnifiedApp() {
     };
   }, []);
 
-  useEffect(() => {
-    if (wallet.connected && wallet.ordinals) {
-      void refreshNgfValidation(wallet.ordinals);
-    }
-  }, [refreshNgfValidation, wallet.connected, wallet.ordinals]);
-
   const toggleLang = () => {
     const nextLang = lang === "ES" ? "EN" : "ES";
     setLang(nextLang);
@@ -621,8 +615,15 @@ export default function UnifiedApp() {
   };
 
   const connectWallet = (name: WalletName) => {
-    setWallet({ connected: true, name, ...walletProfiles[name], runeBalance: null });
+    const nextWallet = {
+      connected: true,
+      name,
+      ...walletProfiles[name],
+      runeBalance: null,
+    };
+    setWallet(nextWallet);
     setIsWalletOpen(false);
+    void refreshNgfValidation(nextWallet.ordinals);
   };
 
   const disconnectWallet = () => {

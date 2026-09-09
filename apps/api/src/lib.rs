@@ -1,30 +1,28 @@
 pub mod bitcoin;
 
 use axum::{
+    Json, Router,
     extract::{Query, State, WebSocketUpgrade},
     http::StatusCode,
     response::IntoResponse,
     routing::{get, post},
-    Json, Router,
 };
 use futures_util::{SinkExt, StreamExt};
-use reqwest::{header::ACCEPT, Client, Url};
+use reqwest::{Client, Url, header::ACCEPT};
 use serde::{Deserialize, Serialize};
-use serde_json::{json, Value};
+use serde_json::{Value, json};
 use std::{env, sync::Arc, time::Duration};
 use tokio_tungstenite::{connect_async, tungstenite::protocol::Message as TungsteniteMessage};
 use tracing::warn;
 
-const TREASURY_ADDRESS: &str =
-    "bc1pl8qtw4g9afscmctydmv56mak4m9leqxyqlvqgxaltj2d5wt9wteqqgpdug";
+const TREASURY_ADDRESS: &str = "bc1pl8qtw4g9afscmctydmv56mak4m9leqxyqlvqgxaltj2d5wt9wteqqgpdug";
 const DEFAULT_MEMPOOL_REST_BASE_URL: &str = "https://mempool.space/api";
 const DEFAULT_MEMPOOL_WS_URL: &str = "wss://mempool.space/api/v1/ws";
 const DEFAULT_ORD_BASE_URL: &str = "https://ordinals.com";
 const NGF_RUNE_NAME: &str = "NGF•BTC•AM";
 const NGF_RUNE_NUMBER: u64 = 208_645;
 const NGF_RUNE_ID: &str = "923867:120";
-const NGF_ETCHING_TXID: &str =
-    "4c0b2416f3dd122025f89a62d7ff265fcee8d00e0fabd874669617cf85437c82";
+const NGF_ETCHING_TXID: &str = "4c0b2416f3dd122025f89a62d7ff265fcee8d00e0fabd874669617cf85437c82";
 const NGF_ETCHING_BLOCK: u64 = 923_867;
 const NGF_DECLARED_TIMESTAMP: &str = "2025-11-16T05:24:23Z";
 
@@ -512,7 +510,10 @@ async fn validate_ngf_handler(
         block_height_matches: tx.status.block_height == Some(NGF_ETCHING_BLOCK),
         block_hash: tx.status.block_hash,
         block_height: tx.status.block_height,
-        block_timestamp: block.as_ref().map(|item| item.timestamp).or(tx.status.block_time),
+        block_timestamp: block
+            .as_ref()
+            .map(|item| item.timestamp)
+            .or(tx.status.block_time),
     };
 
     if let Some(block) = &block {
@@ -569,7 +570,10 @@ async fn fetch_rune_index_validation(state: &AppState) -> Result<RuneIndexValida
         .await
         .map_err(|error| error.to_string())?;
 
-    let rune_name = value_at(&payload, &[&["entry", "spaced_rune"], &["formatted_name"], &["name"]]);
+    let rune_name = value_at(
+        &payload,
+        &[&["entry", "spaced_rune"], &["formatted_name"], &["name"]],
+    );
     let rune_number = value_at(&payload, &[&["entry", "number"], &["number"]]);
     let rune_id = value_at(&payload, &[&["id"]]);
     let etching_txid = value_at(&payload, &[&["entry", "etching"], &["etching_txid"]]);
@@ -711,7 +715,10 @@ fn api_error_from_parse(error: impl ToString) -> (StatusCode, Json<Value>) {
 
 #[cfg(test)]
 mod tests {
-    use super::{extract_mempool_ws_update, extract_ngf_balance, parse_balance_to_u128, value_at, NGF_RUNE_NAME};
+    use super::{
+        NGF_RUNE_NAME, extract_mempool_ws_update, extract_ngf_balance, parse_balance_to_u128,
+        value_at,
+    };
     use serde_json::json;
 
     #[test]

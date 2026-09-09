@@ -1,9 +1,4 @@
-use bitcoin::{
-    address::Address,
-    hex::FromHex,
-    psbt::Psbt,
-    Network,
-};
+use bitcoin::{Network, address::Address, hex::FromHex, psbt::Psbt};
 use serde::{Deserialize, Serialize};
 use std::{error::Error, fmt, str::FromStr};
 
