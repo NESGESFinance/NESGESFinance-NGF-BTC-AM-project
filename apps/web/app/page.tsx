@@ -462,7 +462,8 @@ export default function UnifiedApp() {
   const [inscribeStep, setInscribeStep] = useState<InscribeStep>("form");
   const [form, setForm] = useState({
     projectName: "RedenHouses Global",
-    jurisdiction: "LatAm Corporate Framework",
+    jurisdiction:
+      "Ecuador (Ibarra, Imbabura) S.A.S. BIC / New Mexico, U.S. S.A.S. LLC",
     contractHash:
       "4c0b2416f3dd122025f89a62d7ff265fcee8d00e0fabd874669617cf85437c82",
   });

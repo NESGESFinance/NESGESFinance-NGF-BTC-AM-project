@@ -3,7 +3,7 @@
 ![NESGESFinance Ecosystem](https://raw.githubusercontent.com/NESGESFinance/NESGESFinanceTrust/main/frontend/assets/img/NESGESFinance_Logo.jpg)
 ![NGF•BTC•AM](https://raw.githubusercontent.com/NESGESFinance/NESGESFinanceTrust/main/frontend/assets/img/NGF-BTC-AM.jpg)
 
-**NESGESFinance Ecosystem S.A.S. BIC. & LLC.**  
+**NESGESFinance Ecosystem S.A.S. BIC. & S.A.S. LLC.**  
 Versión documental: **2026**
 
 Este repositorio consolida la información literal actualizada del activo **NGF•BTC•AM** y la alinea con la identidad visual e institucional publicada en el frontend de **NESGESFinance.app**.
