@@ -41,7 +41,7 @@
   },
   "issuer": {
     "entity_name": "NESGESFinance Ecosystem S.A.S.",
-    "jurisdiction": "LatAm Corporate Framework",
+    "jurisdiction": "Dual declared structure: Ecuador (Ibarra, Imbabura) S.A.S. BIC and New Mexico, U.S. S.A.S. LLC",
     "website": "https://nesgesfinance.org/",
     "contact_email": "info.nesgesfinance@gmail.com",
     "official_docs": [
@@ -713,7 +713,7 @@
           "responsible legal review",
           "versioned evidence package"
         ],
-        "notes": "The PDF references Colombia in one section while this repository documents Ecuador/Ibarra; jurisdiction text requires reconciliation."
+        "notes": "Canonical repository declaration references Ecuador (Ibarra, Imbabura) and New Mexico, U.S.; any divergent wording in external documents requires legal reconciliation before production claims."
       },
       {
         "component": "document_control",
