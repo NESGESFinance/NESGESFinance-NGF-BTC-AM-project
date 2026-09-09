@@ -590,5 +590,149 @@
         "amount": 59300000
       }
     ]
+  },
+  "architectural_claims_traceability": {
+    "name": "NESGESFinance.app Architectural Claims Traceability v3.1",
+    "status": "DOCUMENTED",
+    "source_document": "NESGESFinance/Documentacion/reporte-arquitectura-nesgesfinance-app.pdf",
+    "source_commit": "https://github.com/NESGESFinance/Documentacion/commit/182fa40e5aa965f887a38b35a2879a830f4ad5b1",
+    "classification_policy": "The PDF is treated as an external architecture specification. Its claims remain DOCUMENTED or DECLARED until matched with source code, build output, runtime evidence, or on-chain verification.",
+    "claims": [
+      {
+        "component": "frontend",
+        "claim": "Next.js 14+ TypeScript and Tailwind CSS web application for wallet, marketplace, launchpad, and administration UI.",
+        "status": "DOCUMENTED",
+        "source": "NESGESFinance/Documentacion/reporte-arquitectura-nesgesfinance-app.pdf",
+        "required_evidence_to_upgrade": [
+          "canonical source repository path",
+          "package manifest",
+          "successful build artifact or CI run"
+        ],
+        "notes": "Architecture target only; this repository does not contain the described Next.js application."
+      },
+      {
+        "component": "backend",
+        "claim": "Rust Axum/Tokio/Serde API for REST, WebSocket, PSBT construction, signature orchestration, and business rules.",
+        "status": "DOCUMENTED",
+        "source": "NESGESFinance/Documentacion/reporte-arquitectura-nesgesfinance-app.pdf",
+        "required_evidence_to_upgrade": [
+          "canonical Rust source path",
+          "Cargo manifest",
+          "successful test/build output",
+          "runtime endpoint evidence"
+        ],
+        "notes": "No Axum backend source is present in this repository."
+      },
+      {
+        "component": "indexer",
+        "claim": "Rust indexer for Bitcoin blocks, UTXOs, Ordinals, and NGF•BTC•AM Rune balances.",
+        "status": "DOCUMENTED",
+        "source": "NESGESFinance/Documentacion/reporte-arquitectura-nesgesfinance-app.pdf",
+        "required_evidence_to_upgrade": [
+          "indexer source code",
+          "pinned Bitcoin Core version",
+          "Runestone parser output",
+          "reorg/RBF handling tests",
+          "reconstructed balances"
+        ],
+        "notes": "Must remain subordinate to Bitcoin L1 and deterministic Rune/outpoint reconciliation."
+      },
+      {
+        "component": "bitcoin_core",
+        "claim": "Bitcoin Core mainnet node with txindex and ZMQ notifications for raw blocks and transactions.",
+        "status": "DECLARED",
+        "source": "NESGESFinance/Documentacion/reporte-arquitectura-nesgesfinance-app.pdf",
+        "required_evidence_to_upgrade": [
+          "deployment configuration",
+          "version pin",
+          "RPC/ZMQ health checks",
+          "documented mempool and reorg assumptions"
+        ],
+        "notes": "The PDF mentions v26+ and Bitcoin 27.0; this must be reviewed against newer Bitcoin Core behavior before production design."
+      },
+      {
+        "component": "psbt_marketplace",
+        "claim": "Non-custodial atomic exchange through PSBTs using SIGHASH_SINGLE and SIGHASH_ANYONECANPAY.",
+        "status": "DOCUMENTED",
+        "source": "NESGESFinance/Documentacion/reporte-arquitectura-nesgesfinance-app.pdf",
+        "required_evidence_to_upgrade": [
+          "PSBT construction code",
+          "wallet integration tests",
+          "broadcast tests",
+          "fee output policy review"
+        ],
+        "notes": "The architecture is coherent but not runtime-verified in this repository."
+      },
+      {
+        "component": "token_gating",
+        "claim": "NGF•BTC•AM balance thresholds control marketplace, launchpad, governance, and project submission access.",
+        "status": "DECLARED",
+        "source": "NESGESFinance/Documentacion/reporte-arquitectura-nesgesfinance-app.pdf",
+        "required_evidence_to_upgrade": [
+          "policy source file",
+          "deterministic Rune balance source",
+          "authorization tests",
+          "anti-stale-cache safeguards"
+        ],
+        "notes": "Any RuneBalance table must be a derived cache, not the source of truth."
+      },
+      {
+        "component": "kyc_aml",
+        "claim": "Continuous KYC/AML screening, sanctions checks, PEP checks, and dynamic per-series whitelisting.",
+        "status": "DECLARED",
+        "source": "NESGESFinance/Documentacion/reporte-arquitectura-nesgesfinance-app.pdf",
+        "required_evidence_to_upgrade": [
+          "provider contract or integration evidence",
+          "data protection model",
+          "audit log design",
+          "jurisdiction-specific legal review"
+        ],
+        "notes": "Sensitive evidence must not be published directly; only minimal commitments or redacted attestations should be public."
+      },
+      {
+        "component": "data_layer",
+        "claim": "PostgreSQL/Prisma and Redis are used for profiles, KYC states, project metadata, listings, sessions, queues, and cache.",
+        "status": "DOCUMENTED",
+        "source": "NESGESFinance/Documentacion/reporte-arquitectura-nesgesfinance-app.pdf",
+        "required_evidence_to_upgrade": [
+          "schema.prisma",
+          "migration history",
+          "docker-compose service definitions",
+          "integration tests"
+        ],
+        "notes": "Off-chain storage cannot replace Bitcoin/Rune reconciliation for NGF balances."
+      },
+      {
+        "component": "legal_structure",
+        "claim": "The platform operates under a dual S.A.S. BIC and S.A.S. LLC structure.",
+        "status": "DOCUMENTED",
+        "source": "NESGESFinance/Documentacion/reporte-arquitectura-nesgesfinance-app.pdf",
+        "required_evidence_to_upgrade": [
+          "corporate registry documents",
+          "jurisdiction reconciliation",
+          "responsible legal review",
+          "versioned evidence package"
+        ],
+        "notes": "The PDF references Colombia in one section while this repository documents Ecuador/Ibarra; jurisdiction text requires reconciliation."
+      },
+      {
+        "component": "document_control",
+        "claim": "The architecture PDF is marked confidential while published in a public GitHub repository.",
+        "status": "UNVERIFIED",
+        "source": "NESGESFinance/Documentacion/reporte-arquitectura-nesgesfinance-app.pdf",
+        "required_evidence_to_upgrade": [
+          "publication approval",
+          "document classification decision",
+          "redaction review"
+        ],
+        "notes": "Confirm whether public distribution is intended before linking it as official public material."
+      }
+    ],
+    "next_process": [
+      "Map each DOCUMENTED or DECLARED claim to a canonical repository, file path, commit, and owner.",
+      "Promote claims only when source, build, runtime, or on-chain evidence exists.",
+      "Keep NGF•BTC•AM balances anchored to Bitcoin L1 Rune/outpoint reconciliation.",
+      "Resolve version and jurisdiction inconsistencies before production claims are made."
+    ]
   }
 }

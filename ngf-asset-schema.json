@@ -2,7 +2,6 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "NGF•BTC•AM Asset Model Schema",
   "type": "object",
-
   "definitions": {
     "evidenceStatus": {
       "type": "string",
@@ -21,106 +20,260 @@
     "evidenceEntry": {
       "type": "object",
       "properties": {
-        "component": { "type": "string" },
-        "property": { "type": "string" },
-        "value": {
-          "type": ["string", "number", "integer", "boolean", "null"]
+        "component": {
+          "type": "string"
         },
-        "status": { "$ref": "#/definitions/evidenceStatus" },
-        "source": { "type": "string" },
-        "network": { "type": ["string", "null"] },
-        "block": { "type": ["integer", "null"] },
-        "txid": { "type": ["string", "null"] },
-        "evidence": { "type": ["string", "null"] },
-        "notes": { "type": ["string", "null"] }
+        "property": {
+          "type": "string"
+        },
+        "value": {
+          "type": [
+            "string",
+            "number",
+            "integer",
+            "boolean",
+            "null"
+          ]
+        },
+        "status": {
+          "$ref": "#/definitions/evidenceStatus"
+        },
+        "source": {
+          "type": "string"
+        },
+        "network": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "block": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "txid": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "evidence": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
       },
-      "required": ["component", "property", "value", "status", "source"]
+      "required": [
+        "component",
+        "property",
+        "value",
+        "status",
+        "source"
+      ]
     },
     "stateDefinition": {
       "type": "object",
       "properties": {
-        "name": { "type": "string" },
-        "description": { "type": "string" },
-        "evidence_status": { "$ref": "#/definitions/evidenceStatus" }
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "evidence_status": {
+          "$ref": "#/definitions/evidenceStatus"
+        }
       },
-      "required": ["name", "description", "evidence_status"]
+      "required": [
+        "name",
+        "description",
+        "evidence_status"
+      ]
     },
     "stateTransition": {
       "type": "object",
       "properties": {
-        "from": { "type": "string" },
-        "to": { "type": "string" },
+        "from": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        },
         "requires": {
           "type": "array",
-          "items": { "type": "string" }
+          "items": {
+            "type": "string"
+          }
         }
       },
-      "required": ["from", "to", "requires"]
+      "required": [
+        "from",
+        "to",
+        "requires"
+      ]
+    },
+    "architecturalClaim": {
+      "type": "object",
+      "properties": {
+        "component": {
+          "type": "string"
+        },
+        "claim": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/evidenceStatus"
+        },
+        "source": {
+          "type": "string"
+        },
+        "required_evidence_to_upgrade": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "component",
+        "claim",
+        "status",
+        "source",
+        "required_evidence_to_upgrade"
+      ]
     }
   },
-
   "properties": {
-    "asset_id_num": { "type": "string" },
-    "asset_id_ordinal": { "type": "string" },
-    "asset_symbol": { "type": "string" },
-    "name": { "type": "string" },
-
-    "type": { "type": "string", "enum": ["Fungible Rune"] },
-    "network": { "type": "string" },
-    "protocol": { "type": "string" },
+    "asset_id_num": {
+      "type": "string"
+    },
+    "asset_id_ordinal": {
+      "type": "string"
+    },
+    "asset_symbol": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "Fungible Rune"
+      ]
+    },
+    "network": {
+      "type": "string"
+    },
+    "protocol": {
+      "type": "string"
+    },
     "protocol_layers": {
       "type": "object",
       "properties": {
         "primary": {
           "type": "object",
           "properties": {
-            "name": { "type": "string" },
-            "network": { "type": "string" },
-            "state_model": { "type": "string" },
-            "role": { "type": "string" }
+            "name": {
+              "type": "string"
+            },
+            "network": {
+              "type": "string"
+            },
+            "state_model": {
+              "type": "string"
+            },
+            "role": {
+              "type": "string"
+            }
           }
         },
         "bitcoin_core": {
           "type": "object",
           "properties": {
-            "compatibility_policy": { "type": "string" }
+            "compatibility_policy": {
+              "type": "string"
+            }
           }
         },
         "ordinals": {
           "type": "object",
           "properties": {
-            "role": { "type": "string" },
-            "classification_note": { "type": "string" }
+            "role": {
+              "type": "string"
+            },
+            "classification_note": {
+              "type": "string"
+            }
           }
         },
         "taproot_assets": {
           "type": "object",
           "properties": {
-            "role": { "type": "string" },
-            "status": { "type": "string" }
+            "role": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            }
           }
         },
         "lightning": {
           "type": "object",
           "properties": {
-            "role": { "type": "string" }
+            "role": {
+              "type": "string"
+            }
           }
         }
       }
     },
-    "version": { "type": "string" },
-
+    "version": {
+      "type": "string"
+    },
     "etching": {
       "type": "object",
       "properties": {
-        "block": { "type": "integer" },
-        "transaction_index": { "type": "integer" },
-        "txid": { "type": "string" },
-        "timestamp": { "type": "string", "format": "date-time" },
-        "source_wallet": { "type": "string" },
-        "fee_sats": { "type": "integer" },
-        "miner": { "type": "string" },
-        "op_return": { "type": "string" }
+        "block": {
+          "type": "integer"
+        },
+        "transaction_index": {
+          "type": "integer"
+        },
+        "txid": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "source_wallet": {
+          "type": "string"
+        },
+        "fee_sats": {
+          "type": "integer"
+        },
+        "miner": {
+          "type": "string"
+        },
+        "op_return": {
+          "type": "string"
+        }
       },
       "required": [
         "block",
@@ -130,147 +283,262 @@
         "source_wallet"
       ]
     },
-
     "issuer": {
       "type": "object",
       "properties": {
-        "entity_name": { "type": "string" },
-        "jurisdiction": { "type": "string" },
-        "website": { "type": "string" },
-        "contact_email": { "type": "string" },
+        "entity_name": {
+          "type": "string"
+        },
+        "jurisdiction": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string"
+        },
+        "contact_email": {
+          "type": "string"
+        },
         "official_docs": {
           "type": "array",
-          "items": { "type": "string" }
+          "items": {
+            "type": "string"
+          }
         }
       },
-      "required": ["entity_name", "jurisdiction"]
+      "required": [
+        "entity_name",
+        "jurisdiction"
+      ]
     },
-
     "description": {
       "type": "object",
       "properties": {
-        "summary": { "type": "string" },
+        "summary": {
+          "type": "string"
+        },
         "use_cases": {
           "type": "array",
-          "items": { "type": "string" }
+          "items": {
+            "type": "string"
+          }
         }
       }
     },
-
     "state_model": {
       "type": "object",
       "properties": {
-        "source_of_truth": { "type": "string" },
-        "asset_state": { "type": "string" },
-        "internal_ledger_policy": { "type": "string" },
-        "unsupported_model": { "type": "string" }
+        "source_of_truth": {
+          "type": "string"
+        },
+        "asset_state": {
+          "type": "string"
+        },
+        "internal_ledger_policy": {
+          "type": "string"
+        },
+        "unsupported_model": {
+          "type": "string"
+        }
       }
     },
-
     "supply": {
       "type": "object",
       "properties": {
-        "total": { "type": "integer" },
-        "decimals": { "type": "integer" },
-        "mintable": { "type": "boolean" },
-        "burnable": { "type": "boolean" },
-        "model": { "type": "string" },
-        "vesting_policy": { "type": "string" },
-        "premine": { "type": "integer" },
-        "current_supply": { "type": "integer" },
-        "burned": { "type": "integer" },
-        "holders": { "type": "integer" },
-        "distribution_status": { "type": "string" }
+        "total": {
+          "type": "integer"
+        },
+        "decimals": {
+          "type": "integer"
+        },
+        "mintable": {
+          "type": "boolean"
+        },
+        "burnable": {
+          "type": "boolean"
+        },
+        "model": {
+          "type": "string"
+        },
+        "vesting_policy": {
+          "type": "string"
+        },
+        "premine": {
+          "type": "integer"
+        },
+        "current_supply": {
+          "type": "integer"
+        },
+        "burned": {
+          "type": "integer"
+        },
+        "holders": {
+          "type": "integer"
+        },
+        "distribution_status": {
+          "type": "string"
+        }
       },
-      "required": ["total", "decimals", "mintable"]
+      "required": [
+        "total",
+        "decimals",
+        "mintable"
+      ]
     },
-
     "allocation": {
       "type": "object",
       "patternProperties": {
         ".*": {
           "type": "object",
           "properties": {
-            "percentage": { "type": "number" },
-            "amount": { "type": "integer" },
-            "address": { "type": "string" }
+            "percentage": {
+              "type": "number"
+            },
+            "amount": {
+              "type": "integer"
+            },
+            "address": {
+              "type": "string"
+            }
           },
-          "required": ["percentage", "amount", "address"]
+          "required": [
+            "percentage",
+            "amount",
+            "address"
+          ]
         }
       }
     },
-
     "custody": {
       "type": "object",
       "properties": {
-        "model": { "type": "string" },
-        "implementation_stage": { "type": "string" },
+        "model": {
+          "type": "string"
+        },
+        "implementation_stage": {
+          "type": "string"
+        },
         "participants": {
           "type": "array",
-          "items": { "type": "string" }
+          "items": {
+            "type": "string"
+          }
         },
-        "signing_flow": { "type": "string" },
-        "private_key_policy": { "type": "string" },
-        "rotation_policy": { "type": "string" }
+        "signing_flow": {
+          "type": "string"
+        },
+        "private_key_policy": {
+          "type": "string"
+        },
+        "rotation_policy": {
+          "type": "string"
+        }
       }
     },
-
     "audit_and_transparency": {
       "type": "object",
       "properties": {
-        "public_dashboard_url": { "type": "string" },
-        "explorer_url": { "type": "string" },
-        "proof_of_reserves": { "type": "string" },
-        "audit_policy": { "type": "string" },
+        "public_dashboard_url": {
+          "type": "string"
+        },
+        "explorer_url": {
+          "type": "string"
+        },
+        "proof_of_reserves": {
+          "type": "string"
+        },
+        "audit_policy": {
+          "type": "string"
+        },
         "evidence_model": {
           "type": "object",
           "properties": {
             "required_fields": {
               "type": "array",
-              "items": { "type": "string" }
+              "items": {
+                "type": "string"
+              }
             },
-            "verification_status": { "type": "string" }
+            "verification_status": {
+              "type": "string"
+            }
           }
         }
       }
     },
-
     "evidence_status_definitions": {
       "type": "object",
-      "additionalProperties": { "type": "string" },
-      "propertyNames": { "$ref": "#/definitions/evidenceStatus" }
+      "additionalProperties": {
+        "type": "string"
+      },
+      "propertyNames": {
+        "$ref": "#/definitions/evidenceStatus"
+      }
     },
-
     "ngf_genesis_audit_record": {
       "type": "object",
       "properties": {
-        "component": { "type": "string" },
-        "record_type": { "type": "string" },
-        "status": { "$ref": "#/definitions/evidenceStatus" },
-        "source_of_truth_policy": { "type": "string" },
+        "component": {
+          "type": "string"
+        },
+        "record_type": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/evidenceStatus"
+        },
+        "source_of_truth_policy": {
+          "type": "string"
+        },
         "declared_values": {
           "type": "object",
           "properties": {
-            "rune_id": { "type": "string" },
-            "rune_symbol": { "type": "string" },
-            "txid": { "type": "string" },
-            "block": { "type": "integer" },
-            "transaction_index": { "type": "integer" },
-            "timestamp": { "type": "string", "format": "date-time" },
-            "total_supply": { "type": "integer" },
-            "decimals": { "type": "integer" },
-            "mintable": { "type": "boolean" },
-            "burnable": { "type": "boolean" },
-            "premine": { "type": "integer" }
+            "rune_id": {
+              "type": "string"
+            },
+            "rune_symbol": {
+              "type": "string"
+            },
+            "txid": {
+              "type": "string"
+            },
+            "block": {
+              "type": "integer"
+            },
+            "transaction_index": {
+              "type": "integer"
+            },
+            "timestamp": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "total_supply": {
+              "type": "integer"
+            },
+            "decimals": {
+              "type": "integer"
+            },
+            "mintable": {
+              "type": "boolean"
+            },
+            "burnable": {
+              "type": "boolean"
+            },
+            "premine": {
+              "type": "integer"
+            }
           }
         },
         "forensic_verification_steps": {
           "type": "array",
-          "items": { "type": "string" }
+          "items": {
+            "type": "string"
+          }
         },
         "current_limitations": {
           "type": "array",
-          "items": { "type": "string" }
+          "items": {
+            "type": "string"
+          }
         }
       },
       "required": [
@@ -283,30 +551,44 @@
         "current_limitations"
       ]
     },
-
     "evidence_matrix": {
       "type": "array",
-      "items": { "$ref": "#/definitions/evidenceEntry" }
+      "items": {
+        "$ref": "#/definitions/evidenceEntry"
+      }
     },
-
     "ngf_state_machine": {
       "type": "object",
       "properties": {
-        "name": { "type": "string" },
-        "status": { "$ref": "#/definitions/evidenceStatus" },
-        "scope": { "type": "string" },
-        "source_of_truth": { "type": "string" },
+        "name": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/evidenceStatus"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "source_of_truth": {
+          "type": "string"
+        },
         "states": {
           "type": "array",
-          "items": { "$ref": "#/definitions/stateDefinition" }
+          "items": {
+            "$ref": "#/definitions/stateDefinition"
+          }
         },
         "transitions": {
           "type": "array",
-          "items": { "$ref": "#/definitions/stateTransition" }
+          "items": {
+            "$ref": "#/definitions/stateTransition"
+          }
         },
         "invariants": {
           "type": "array",
-          "items": { "type": "string" }
+          "items": {
+            "type": "string"
+          }
         }
       },
       "required": [
@@ -319,28 +601,41 @@
         "invariants"
       ]
     },
-
     "ngf_reconciliation_engine": {
       "type": "object",
       "properties": {
-        "name": { "type": "string" },
-        "status": { "$ref": "#/definitions/evidenceStatus" },
-        "purpose": { "type": "string" },
+        "name": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/evidenceStatus"
+        },
+        "purpose": {
+          "type": "string"
+        },
         "inputs": {
           "type": "array",
-          "items": { "type": "string" }
+          "items": {
+            "type": "string"
+          }
         },
         "outputs": {
           "type": "array",
-          "items": { "type": "string" }
+          "items": {
+            "type": "string"
+          }
         },
         "minimum_checks": {
           "type": "array",
-          "items": { "type": "string" }
+          "items": {
+            "type": "string"
+          }
         },
         "non_goals": {
           "type": "array",
-          "items": { "type": "string" }
+          "items": {
+            "type": "string"
+          }
         }
       },
       "required": [
@@ -353,77 +648,163 @@
         "non_goals"
       ]
     },
-
     "governance": {
       "type": "object",
       "properties": {
-        "model": { "type": "string" },
+        "model": {
+          "type": "string"
+        },
         "voting_rights": {
           "type": "array",
-          "items": { "type": "string" }
+          "items": {
+            "type": "string"
+          }
         },
-        "quorum": { "type": "number" },
-        "voting_weight_policy": { "type": "string" }
-      }
-    },
-
-    "technical": {
-      "type": "object",
-      "properties": {
-        "taproot_compatibility": { "type": "boolean" },
-        "lightning_compatibility": { "type": "boolean" },
-        "api_schema": { "type": "string" },
-        "commitment_bytes": { "type": "string" },
-        "indexer_requirements": {
-          "type": "array",
-          "items": { "type": "string" }
+        "quorum": {
+          "type": "number"
+        },
+        "voting_weight_policy": {
+          "type": "string"
         }
       }
     },
-
+    "technical": {
+      "type": "object",
+      "properties": {
+        "taproot_compatibility": {
+          "type": "boolean"
+        },
+        "lightning_compatibility": {
+          "type": "boolean"
+        },
+        "api_schema": {
+          "type": "string"
+        },
+        "commitment_bytes": {
+          "type": "string"
+        },
+        "indexer_requirements": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
     "status": {
       "type": "object",
       "properties": {
-        "issued": { "type": "boolean" },
-        "explorer_listed": { "type": "boolean" },
-        "public_sale": { "type": "string" },
-        "current_state": { "type": "string" }
+        "issued": {
+          "type": "boolean"
+        },
+        "explorer_listed": {
+          "type": "boolean"
+        },
+        "public_sale": {
+          "type": "string"
+        },
+        "current_state": {
+          "type": "string"
+        }
       }
     },
-
     "legal": {
       "type": "object",
       "properties": {
-        "documentation_standard": { "type": "string" },
-        "asset_category": { "type": "string" },
-        "record_persistence": { "type": "string" },
-        "ordinals_classification_note": { "type": "string" },
-        "compliance_model": { "type": "string" },
-        "disclaimer": { "type": "string" }
+        "documentation_standard": {
+          "type": "string"
+        },
+        "asset_category": {
+          "type": "string"
+        },
+        "record_persistence": {
+          "type": "string"
+        },
+        "ordinals_classification_note": {
+          "type": "string"
+        },
+        "compliance_model": {
+          "type": "string"
+        },
+        "disclaimer": {
+          "type": "string"
+        }
       }
     },
-
     "references": {
       "type": "object",
       "properties": {
-        "unisat_listing": { "type": "string" },
-        "mempool_tx": { "type": "string" },
+        "unisat_listing": {
+          "type": "string"
+        },
+        "mempool_tx": {
+          "type": "string"
+        },
         "holders_list": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
-              "address": { "type": "string" },
-              "percentage": { "type": "number" },
-              "amount": { "type": "integer" }
+              "address": {
+                "type": "string"
+              },
+              "percentage": {
+                "type": "number"
+              },
+              "amount": {
+                "type": "integer"
+              }
             },
-            "required": ["address", "percentage", "amount"]
+            "required": [
+              "address",
+              "percentage",
+              "amount"
+            ]
           }
         }
       }
+    },
+    "architectural_claims_traceability": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/evidenceStatus"
+        },
+        "source_document": {
+          "type": "string"
+        },
+        "source_commit": {
+          "type": "string"
+        },
+        "classification_policy": {
+          "type": "string"
+        },
+        "claims": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/architecturalClaim"
+          }
+        },
+        "next_process": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "name",
+        "status",
+        "source_document",
+        "classification_policy",
+        "claims",
+        "next_process"
+      ]
     }
   },
-
   "required": [
     "asset_symbol",
     "name",
@@ -438,6 +819,7 @@
     "ngf_genesis_audit_record",
     "evidence_matrix",
     "ngf_state_machine",
-    "ngf_reconciliation_engine"
+    "ngf_reconciliation_engine",
+    "architectural_claims_traceability"
   ]
 }

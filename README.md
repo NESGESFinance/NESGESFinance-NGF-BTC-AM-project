@@ -153,6 +153,21 @@ La validación semántica también emite una advertencia si la suma declarada de
 
 ---
 
+## Trazabilidad arquitectónica v3.1
+
+El nuevo reporte público `NESGESFinance/Documentacion/reporte-arquitectura-nesgesfinance-app.pdf` se incorpora como **fuente documental externa** para la arquitectura objetivo de NESGESFinance.app. Sus afirmaciones no se promueven automáticamente a producción verificada: cada una debe mapearse a código fuente, build, runtime, despliegue o evidencia on-chain antes de cambiar su estado.
+
+`ngf-asset.json` ahora incluye `architectural_claims_traceability`, una matriz específica para claims de frontend, backend Rust/Axum, indexador Runes, Bitcoin Core, PSBT marketplace, token gating, KYC/AML, capa de datos, estructura legal y control documental. Esta matriz mantiene como `DOCUMENTED` o `DECLARED` lo que proviene del PDF y exige evidencia adicional antes de usar estados como `VERIFIED_SOURCE`, `VERIFIED_BUILD`, `VERIFIED_RUNTIME` o `VERIFIED_ONCHAIN`.
+
+Advertencias activas:
+
+- La versión de Bitcoin Core declarada en el PDF debe revisarse frente a la política de version pinning y supuestos de mempool/reorg/RBF.
+- La estructura jurídica declarada debe reconciliar diferencias jurisdiccionales entre documentos.
+- Cualquier `RuneBalance` operativo debe tratarse como caché derivada de Bitcoin L1, no como fuente de verdad.
+- Todo documento marcado como confidencial y publicado públicamente requiere revisión explícita de clasificación documental.
+
+---
+
 ## Tokenómica oficial v5.0
 
 | Categoría | % | NGF | Propósito |
