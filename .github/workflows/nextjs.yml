@@ -28,18 +28,20 @@ jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
+    env:
+      WEB_DIR: apps/web
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Detect package manager
         id: detect-package-manager
         run: |
-          if [ -f "${{ github.workspace }}/yarn.lock" ]; then
+          if [ -f "${{ github.workspace }}/${{ env.WEB_DIR }}/yarn.lock" ]; then
             echo "manager=yarn" >> $GITHUB_OUTPUT
             echo "command=install" >> $GITHUB_OUTPUT
             echo "runner=yarn" >> $GITHUB_OUTPUT
             exit 0
-          elif [ -f "${{ github.workspace }}/package.json" ]; then
+          elif [ -f "${{ github.workspace }}/${{ env.WEB_DIR }}/package.json" ]; then
             echo "manager=npm" >> $GITHUB_OUTPUT
             echo "command=ci" >> $GITHUB_OUTPUT
             echo "runner=npx --no-install" >> $GITHUB_OUTPUT
@@ -53,6 +55,7 @@ jobs:
         with:
           node-version: "20"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
+          cache-dependency-path: ${{ env.WEB_DIR }}/package-lock.json
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
@@ -65,20 +68,22 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
-            .next/cache
+            ${{ env.WEB_DIR }}/.next/cache
           # Generate a new cache whenever packages or source files change.
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          key: ${{ runner.os }}-nextjs-${{ hashFiles(format('{0}/package-lock.json', env.WEB_DIR), format('{0}/yarn.lock', env.WEB_DIR)) }}-${{ hashFiles(format('{0}/**.[jt]s', env.WEB_DIR), format('{0}/**.[jt]sx', env.WEB_DIR)) }}
           # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
-            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
+            ${{ runner.os }}-nextjs-${{ hashFiles(format('{0}/package-lock.json', env.WEB_DIR), format('{0}/yarn.lock', env.WEB_DIR)) }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+        working-directory: ${{ env.WEB_DIR }}
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
+        working-directory: ${{ env.WEB_DIR }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: ${{ env.WEB_DIR }}/out
 
   # Deployment job
   deploy:
