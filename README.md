@@ -242,12 +242,33 @@ La conformidad regulatoria no debe tratarse como insignia estática. Debe respal
 
 ---
 
+## Despliegue de GitHub Pages (paso a paso)
+
+Este repositorio deja **un solo flujo activo de despliegue**:
+
+- Activo: `.github/workflows/pages.yml` (sitio estático desde la raíz: `index.html` + `styles.css`)
+- Desactivado: `.github/workflows-disabled/nextjs.yml` (respaldo para `apps/web`)
+
+Pasos:
+
+1. En GitHub abre el repositorio y entra a **Settings → Pages**.
+2. En **Source**, selecciona **GitHub Actions**.
+3. Confirma que el flujo activo sea `.github/workflows/pages.yml`.
+4. Haz push de cambios a la rama `main` o ejecuta el flujo con **workflow_dispatch** desde **Actions**.
+5. Espera a que el job de despliegue termine en estado verde.
+6. Abre la URL publicada en **Settings → Pages** y valida que el sitio cargue correctamente.
+7. Si falla, revisa los logs del job fallido en **Actions**, corrige y vuelve a ejecutar con push a `main` o ejecución manual.
+
+---
+
 ## Archivos del repositorio
 
 | Archivo | Descripción |
 |---|---|
 | `ngf-asset.json` | Metadata oficial del activo NGF•BTC•AM |
 | `ngf-asset-schema.json` | Esquema JSON para validación |
+| `.github/workflows/pages.yml` | Flujo activo de despliegue a GitHub Pages del sitio estático |
+| `.github/workflows-disabled/nextjs.yml` | Flujo Next.js desactivado para evitar doble despliegue |
 | `.github/workflows/validate-schema.yml` | GitHub Actions workflow that verifies required files, schema validation and NGF semantic metadata checks |
 
 ---
